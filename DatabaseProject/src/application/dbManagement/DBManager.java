@@ -1,16 +1,27 @@
-package dbManagement;
+package application.dbManagement;
 import java.sql.*;
 public class DBManager {
 	BookManager bookManager;
+	UserManager userManager;
+	Connection connection;
 	public DBManager() throws SQLException {
 		//Start connection
 		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         System.out.println("before connection");
-        Connection connection =DriverManager.getConnection(
+        connection =DriverManager.getConnection(
         				"jdbc:mysql://127.0.0.1:3306/LIBRARY","user","user");
         bookManager = new BookManager(connection);
+        userManager = new UserManager(connection);
         
-        
+	}
+	public BookManager getBookManager() {
+		return bookManager;
+	}
+	public UserManager getUserManager() {
+		return userManager;
+	}
+	public void commitAll() throws SQLException {
+		connection.commit();
 	}
 	public static void main(String args[]){
         try{
