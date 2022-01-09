@@ -6,7 +6,7 @@
 # The Database Project
 This is Analysis, design, and implementation of a database system to support the operations of a simplified online bookstore. And the creation of the necessary forms to perform these operations.
 
-## operations
+## The Main Operations
 1. Adding new books
 To add a new book, the user enters the properties of the new book along with a threshold (the minimum
 quantity in stock to be maintained for that book).
