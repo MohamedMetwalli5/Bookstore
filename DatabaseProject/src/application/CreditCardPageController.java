@@ -21,6 +21,7 @@ public class CreditCardPageController {
 	@FXML
 	private Button SignOutButton;
 	
+	@FXML
 	private void Submit(MouseEvent mouseEvent) throws IOException {
 		// check for the correctness of the information
 //		if() {
@@ -31,6 +32,7 @@ public class CreditCardPageController {
 //		}
 	}
 	
+	@FXML
 	private void SignOut(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("Home.fxml");	

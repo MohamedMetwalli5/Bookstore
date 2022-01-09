@@ -11,6 +11,7 @@ public class SignUpFormController {
 	@FXML
 	private Button SignUpButton;
 	
+	@FXML
 	private void SignUp(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("HomePage.fxml");

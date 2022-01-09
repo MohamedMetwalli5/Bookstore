@@ -24,27 +24,33 @@ public class ManagerOperationsPageController {
 	@FXML
 	private TextField UserNameTextField;
 	
+	@FXML
 	private void SignOut(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("Home.fxml");	
 	}
 	
+	@FXML
 	private void SaveAddBook(MouseEvent mouseEvent) throws IOException {
 			
 	}
 	
+	@FXML
 	private void SaveModifyBook(MouseEvent mouseEvent) throws IOException {
 		
 	}
 	
+	@FXML
 	private void SaveOrderBooks(MouseEvent mouseEvent) throws IOException {
 		
 	}
 	
+	@FXML
 	private void SearchBook(MouseEvent mouseEvent) throws IOException {
 		
 	}
 	
+	@FXML
 	private void AddManager(MouseEvent mouseEvent) throws IOException {
 		
 	}

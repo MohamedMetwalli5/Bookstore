@@ -138,7 +138,10 @@
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#Search" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #8843F2;" text="Search" textFill="WHITE" />
+                  <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#Search" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #8843F2;" text="Search" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </graphic>
             </Menu>
         </menus>

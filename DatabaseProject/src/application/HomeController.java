@@ -11,11 +11,13 @@ public class HomeController {
 	@FXML
 	private Button SignUpButton, SignInButton;
 	
+	@FXML
 	private void SignUp(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("SignUpForm.fxml");
 	}
 	
+	@FXML
 	private void SignIn(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("SignInForm.fxml");

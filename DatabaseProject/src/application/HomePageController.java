@@ -26,16 +26,19 @@ public class HomePageController {
 	
 	private static String SearchType = "Title";
 	
+	@FXML
 	private void SignOut(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("Home.fxml");	
 	}
 	
+	@FXML
 	private void EditProfile(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("EditProfilePage.fxml");	
 	}
 	
+	@FXML
 	private void SelectSearchType(ActionEvent event) {
 		if(ISBNRadioButton.isSelected()) {
 			SearchType = "ISBN";
@@ -54,6 +57,7 @@ public class HomePageController {
 		}
 	}
 	
+	@FXML
 	private void Search(MouseEvent mouseEvent) throws IOException {
 		// searching in the data base and display what the user wanted
 		String SearchingText = InsertTextField.getText();

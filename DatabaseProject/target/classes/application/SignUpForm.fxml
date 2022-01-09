@@ -18,7 +18,7 @@
       <TextField layoutX="31.0" layoutY="273.0" promptText="Phone Number" />
       <TextField layoutX="31.0" layoutY="311.0" promptText="Shipping Address" />
     <AnchorPane layoutX="128.0" layoutY="73.0" />
-      <SplitPane orientation="VERTICAL" prefHeight="93.0" prefWidth="427.0" style="-fx-background-image: C:\Users\DELL\Downloads\pattern_circle.png" AnchorPane.leftAnchor="0.0" />
+      <SplitPane orientation="VERTICAL" prefHeight="93.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" />
       <Button fx:id="SignUpButton" layoutX="173.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#SignUp" style="-fx-background-color: #ffc361;" text="Sign Up" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
