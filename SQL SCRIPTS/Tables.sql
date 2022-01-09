@@ -3,7 +3,6 @@
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS BOOK_STORE ;
 USE BOOK_STORE ;
-
 -- -----------------------------------------------------
 -- Table PUBLISHERS
 -- -----------------------------------------------------
@@ -122,7 +121,6 @@ CREATE TABLE IF NOT EXISTS MANAGERS (
     ON UPDATE CASCADE);
 -- Hard coded Manager insertion
 INSERT INTO MANAGERS VALUES('Manager');
-
 -- -----------------------------------------------------
 -- Table SALES
 -- -----------------------------------------------------
@@ -146,3 +144,26 @@ CREATE TABLE IF NOT EXISTS SALES (
     REFERENCES BOOKS (ISBN)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
+
+-- -----------------------------------------------------
+-- Table CART
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS CART (
+  USER_NAME VARCHAR(45) NOT NULL,
+  ISBN CHAR(13) NOT NULL,
+  QUANTITY INT NOT NULL,
+  PRIMARY KEY (USER_NAME, ISBN),
+  INDEX BOOK_FK_idx (ISBN ASC) VISIBLE,
+  CONSTRAINT FK_NAME
+    FOREIGN KEY (USER_NAME)
+    REFERENCES USERS (NAME)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT FK_ISBN
+    FOREIGN KEY (ISBN)
+    REFERENCES BOOKS (ISBN)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+    
+    
+    

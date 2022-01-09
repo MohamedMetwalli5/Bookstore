@@ -9,26 +9,34 @@ import application.entities.*;
 public class BookManager {
 	private SimpleDateFormat format = new  SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private PreparedStatement addBookStatement;
+	private PreparedStatement updateBookStatement;
 	private PreparedStatement addSaleStatement;
 	private PreparedStatement addBookOrderStatement;
 	private PreparedStatement confirmOrderStatement;
 	private PreparedStatement getBooksStatement;
-	/*private PreparedStatement getSalesStatement;*/
 	private PreparedStatement getBookOrdersStatement;
-	
-	//search for books and filtering ?
-	
+	private PreparedStatement addToCartStatement;
+	private PreparedStatement removeFromCartStatement;
+	private PreparedStatement emptyCartStatement;
+	/*private PreparedStatement getSalesStatement;*/
 	BookManager(Connection connection) throws SQLException{
 		addBookStatement = connection.prepareStatement("INSERT INTO BOOKS VALUES"
 								+"(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		updateBookStatement =  connection.prepareStatement("UPDATE BOOKS "
+									+"SET TITLE = ?, AUTHOR = ?, PUBLISHER = ?, PUBLICATION_YEAR = ?, "
+									+ "CATEGORY = ?, MIN_QUANTITY = ?, QUANTITY = ? "
+									+ "WHERE ISBN = ?");
 		addSaleStatement = connection.prepareStatement("INSERT INTO SALES"+
 								"(USER_NAME,ISBN,SALE_TIME,QUANTITY) VALUES"
 								+"( ?, ?, ?, ?)");
 		addBookOrderStatement = connection.prepareStatement("INSERT INTO BOOK_ORDER"+
 								"(ISBN,QUANTITY,ORDER_DATE) VALUES"
 								+"(?, ?, ?)");
+		addToCartStatement = connection.prepareStatement("INSERT INTO CART VALUES(?, ?, ?)");
 		
 		confirmOrderStatement = connection.prepareStatement("DELETE FROM BOOK_ORDER WHERE ID = ?");
+		removeFromCartStatement = connection.prepareStatement("DELETE FROM CART WHERE USER_NAME = ? AND ISBN = ?");
+		emptyCartStatement = connection.prepareCall("DELETE FROM CART WHERE USER_NAME = ?");
 		
 		getBooksStatement = connection.prepareStatement("SELECT * FROM BOOKS ORDER BY TITLE");
 		/*getSalesStatement = connection.prepareStatement("SELECT * FROM SALES");*/
@@ -46,6 +54,18 @@ public class BookManager {
 		addBookStatement.setInt(9, book.getQuantity());
 		return addBookStatement.executeUpdate() == 1;
 	}
+	public boolean updateBook(Book book) throws SQLException {
+		updateBookStatement.setString(1, book.getTitle());
+		updateBookStatement.setString(2, book.getAuthor());
+		updateBookStatement.setString(3, book.getPublisher());
+		updateBookStatement.setInt(4, book.getPublicationYear());
+		updateBookStatement.setDouble(5, book.getSellingPrice());
+		updateBookStatement.setString(6, book.getCategory());
+		updateBookStatement.setInt(7, book.getMinQuantity());
+		updateBookStatement.setInt(8, book.getQuantity());
+		updateBookStatement.setString(9, book.getIsbn());
+		return updateBookStatement.executeUpdate() == 1;
+	}
 	public boolean addSale(Sale sale) throws SQLException {
 		addSaleStatement.setString(1, sale.getUserName());
 		addSaleStatement.setString(2, sale.getIsbn());
@@ -58,6 +78,21 @@ public class BookManager {
 		addBookOrderStatement.setInt(2, order.getQuantity());
 		addBookOrderStatement.setString(3, format.format(order.getOrderDate()));
 		return addBookOrderStatement.executeUpdate() == 1;
+	}
+	public boolean addToCart(String userName, String isbn, int quantity) throws SQLException {
+		addToCartStatement.setString(1, userName);
+		addToCartStatement.setString(2, isbn);
+		addToCartStatement.setInt(3, quantity);
+		return addToCartStatement.executeUpdate() == 1;
+	}
+	public boolean removeFromCart(String userName, String isbn) throws SQLException {
+		removeFromCartStatement.setString(1, userName);
+		removeFromCartStatement.setString(2, isbn);
+		return removeFromCartStatement.executeUpdate() == 1;
+	}
+	public void emptyCart(String userName) throws SQLException {
+		emptyCartStatement.setString(1, userName);
+		emptyCartStatement.executeUpdate();
 	}
 	public boolean confirmBookOrder(int id) throws SQLException {
 		confirmOrderStatement.setInt(1, id);

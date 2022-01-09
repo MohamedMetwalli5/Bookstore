@@ -1,3 +1,6 @@
+-- -----------------------------------------------------
+-- Report procedures
+-- -----------------------------------------------------
 DELIMITER $$ 
 CREATE PROCEDURE TOTAL_BOOK_SALES_LAST_MONTH() 
 BEGIN 
@@ -35,9 +38,13 @@ BEGIN
 END $$
 DELIMITER ;
 
-                    
-                    
-                    
+
+DELIMITER $$
+CREATE PROCEDURE SIGN_OUT(UNAME VARCHAR(45))
+BEGIN 
+	DELETE FROM CART WHERE USER_NAME=UNAME;
+END $$
+DELIMITER ;     
                     
                     
                     
