@@ -14,13 +14,13 @@ quantity in stock to be maintained for that book).
 For updating an existing book, the user first searches for the book then he does the required update. For a given
 book, the user can update the quantity in stock when a copy or more of the book is sold. The user cannot update
 the quantity of a book if this update will cause the quantity of a book in stock to be negative.
-3. Placing orders on books
+* Placing orders on books
 An order with constant quantity is placed only when the quantity of a book drops from above a given threshold
 (the minimum quantity in stock) to below the given threshold.
-4. Confirming orders
+* Confirming orders
 The user can confirm an order when receiving the ordered quantity from the book’s publisher; the quantity of
 the book in store automatically increases with the quantity specified in the order. Assume that deleting the order
 means that the order is received from publisher.
-5. Searching for books
+* Searching for books
 The user can search for a book by ISBN, and title. The user can search for books of a specific Category, author
 or publisher.
