@@ -27,3 +27,6 @@ BEGIN
 END $$
 DELIMITER ;
 SELECT IS_MANAGER('Seif');
+
+
+
