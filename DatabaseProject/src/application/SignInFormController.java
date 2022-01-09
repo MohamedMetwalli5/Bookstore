@@ -11,7 +11,7 @@ public class SignInFormController {
 	@FXML
 	private Button SignInButton;
 	
-	public void SignIn(MouseEvent mouseEvent) throws IOException {
+	private void SignIn(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("HomePage.fxml");
 	}
