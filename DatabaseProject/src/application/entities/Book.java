@@ -1,13 +1,13 @@
-package entities;
+package application.entities;
 
 public class Book {
 	String isbn;
 	String title;
 	String author;
 	String publisher;
-	String category;
 	int publicationYear;
 	double sellingPrice;
+	String category;
 	int minQuantity;
 	int quantity;
 	

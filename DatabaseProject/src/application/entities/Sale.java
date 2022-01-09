@@ -1,6 +1,6 @@
-package entities;
+package application.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Sale {
 	private int id;
