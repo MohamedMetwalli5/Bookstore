@@ -13,11 +13,11 @@ public class BookManager {
 	private PreparedStatement addBookOrderStatement;
 	private PreparedStatement confirmOrderStatement;
 	private PreparedStatement getBooksStatement;
-	/*private PreparedStatement getSalesStatement;*/
 	private PreparedStatement getBookOrdersStatement;
-	
-	//search for books and filtering ?
-	
+	private PreparedStatement addToCartStatement;
+	private PreparedStatement removeFromCartStatement;
+	private PreparedStatement emptyCartStatement;
+	/*private PreparedStatement getSalesStatement;*/
 	BookManager(Connection connection) throws SQLException{
 		addBookStatement = connection.prepareStatement("INSERT INTO BOOKS VALUES"
 								+"(?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -27,8 +27,11 @@ public class BookManager {
 		addBookOrderStatement = connection.prepareStatement("INSERT INTO BOOK_ORDER"+
 								"(ISBN,QUANTITY,ORDER_DATE) VALUES"
 								+"(?, ?, ?)");
+		addToCartStatement = connection.prepareStatement("INSERT INTO CART VALUES(?, ?, ?)");
 		
 		confirmOrderStatement = connection.prepareStatement("DELETE FROM BOOK_ORDER WHERE ID = ?");
+		removeFromCartStatement = connection.prepareStatement("DELETE FROM CART WHERE USER_NAME = ? AND ISBN = ?");
+		emptyCartStatement = connection.prepareCall("DELETE FROM CART WHERE USER_NAME = ?");
 		
 		getBooksStatement = connection.prepareStatement("SELECT * FROM BOOKS ORDER BY TITLE");
 		/*getSalesStatement = connection.prepareStatement("SELECT * FROM SALES");*/
@@ -58,6 +61,21 @@ public class BookManager {
 		addBookOrderStatement.setInt(2, order.getQuantity());
 		addBookOrderStatement.setString(3, format.format(order.getOrderDate()));
 		return addBookOrderStatement.executeUpdate() == 1;
+	}
+	public boolean addToCart(String userName, String isbn, int quantity) throws SQLException {
+		addToCartStatement.setString(1, userName);
+		addToCartStatement.setString(2, isbn);
+		addToCartStatement.setInt(3, quantity);
+		return addToCartStatement.executeUpdate() == 1;
+	}
+	public boolean removeFromCart(String userName, String isbn) throws SQLException {
+		removeFromCartStatement.setString(1, userName);
+		removeFromCartStatement.setString(2, isbn);
+		return removeFromCartStatement.executeUpdate() == 1;
+	}
+	public void emptyCart(String userName) throws SQLException {
+		emptyCartStatement.setString(1, userName);
+		emptyCartStatement.executeUpdate();
 	}
 	public boolean confirmBookOrder(int id) throws SQLException {
 		confirmOrderStatement.setInt(1, id);
