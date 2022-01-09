@@ -1,3 +1,6 @@
+-- -----------------------------------------------------
+-- Report procedures
+-- -----------------------------------------------------
 DELIMITER $$ 
 CREATE PROCEDURE TOTAL_BOOK_SALES_LAST_MONTH() 
 BEGIN 
