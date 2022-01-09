@@ -9,14 +9,14 @@ import javafx.scene.input.MouseEvent;
 public class HomeController {
 	
 	@FXML
-	private Button SignUpButton;
+	private Button SignUpButton, SignInButton;
 	
-	public void SignUp(MouseEvent mouseEvent) throws IOException {
+	private void SignUp(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("SignUpForm.fxml");
 	}
 	
-	public void SignIn(MouseEvent mouseEvent) throws IOException {
+	private void SignIn(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("SignInForm.fxml");
 	}

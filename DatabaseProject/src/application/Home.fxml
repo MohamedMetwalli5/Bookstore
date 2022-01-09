@@ -24,7 +24,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="91.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#SignIn" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #a1eea0;" text="Sign In">
+            <Button fx:id="SignInButton" layoutX="91.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#SignIn" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #a1eea0;" text="Sign In">
                <font>
                   <Font size="23.0" />
                </font>
