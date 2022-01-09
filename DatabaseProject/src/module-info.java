@@ -3,8 +3,11 @@ module DatabaseProject {
 	requires javafx.fxml;
 	
 	requires javafx.graphics;
+	
 	requires java.sql;
+	requires mysql.connector.java;
 
 
 	opens application to javafx.graphics, javafx.fxml;
+	opens application.dbManagement to java.sql, mysql.connector.java;
 }
