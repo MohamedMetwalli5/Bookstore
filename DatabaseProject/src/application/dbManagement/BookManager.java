@@ -9,6 +9,7 @@ import application.entities.*;
 public class BookManager {
 	private SimpleDateFormat format = new  SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private PreparedStatement addBookStatement;
+	private PreparedStatement updateBookStatement;
 	private PreparedStatement addSaleStatement;
 	private PreparedStatement addBookOrderStatement;
 	private PreparedStatement confirmOrderStatement;
@@ -21,6 +22,10 @@ public class BookManager {
 	BookManager(Connection connection) throws SQLException{
 		addBookStatement = connection.prepareStatement("INSERT INTO BOOKS VALUES"
 								+"(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		updateBookStatement =  connection.prepareStatement("UPDATE BOOKS "
+									+"SET TITLE = ?, AUTHOR = ?, PUBLISHER = ?, PUBLICATION_YEAR = ?, "
+									+ "CATEGORY = ?, MIN_QUANTITY = ?, QUANTITY = ? "
+									+ "WHERE ISBN = ?");
 		addSaleStatement = connection.prepareStatement("INSERT INTO SALES"+
 								"(USER_NAME,ISBN,SALE_TIME,QUANTITY) VALUES"
 								+"( ?, ?, ?, ?)");
@@ -48,6 +53,18 @@ public class BookManager {
 		addBookStatement.setInt(8, book.getMinQuantity());
 		addBookStatement.setInt(9, book.getQuantity());
 		return addBookStatement.executeUpdate() == 1;
+	}
+	public boolean updateBook(Book book) throws SQLException {
+		updateBookStatement.setString(1, book.getTitle());
+		updateBookStatement.setString(2, book.getAuthor());
+		updateBookStatement.setString(3, book.getPublisher());
+		updateBookStatement.setInt(4, book.getPublicationYear());
+		updateBookStatement.setDouble(5, book.getSellingPrice());
+		updateBookStatement.setString(6, book.getCategory());
+		updateBookStatement.setInt(7, book.getMinQuantity());
+		updateBookStatement.setInt(8, book.getQuantity());
+		updateBookStatement.setString(9, book.getIsbn());
+		return updateBookStatement.executeUpdate() == 1;
 	}
 	public boolean addSale(Sale sale) throws SQLException {
 		addSaleStatement.setString(1, sale.getUserName());

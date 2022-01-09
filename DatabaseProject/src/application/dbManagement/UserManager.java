@@ -6,6 +6,7 @@ import application.entities.*;
 
 public class UserManager {
 	private PreparedStatement addUserStatement;
+	private PreparedStatement updateUserStatement;
 	private PreparedStatement promoteUserStatement;
 	private CallableStatement isManagerStatement;
 	/*private PreparedStatement addPublisherStatement;
@@ -15,6 +16,10 @@ public class UserManager {
 	UserManager(Connection connection) throws SQLException{
 		addUserStatement = connection.prepareStatement("INSERT INTO USERS VALUES"
 								+"( ?, ?, ?, ?, ?, ?)");
+		updateUserStatement = connection.prepareStatement("UPDATE USERS "
+												+"SET FNAME = ?, LNAME = ?, PHONE = ?, PASSWORD = ?, "
+												+ "EMAIL = ?, SHIP_ADDRESS = ? "
+												+ "WHERE NAME = ?");
 		promoteUserStatement = connection.prepareStatement("INSERT INTO MANAGERS VALUES(?)");
 		
 		isManagerStatement = connection.prepareCall("{? = CALL IS_MANAGER(?)}");
@@ -33,6 +38,16 @@ public class UserManager {
 		addUserStatement.setString(6, user.getEmail());
 		addUserStatement.setString(7, user.getShipAddress());
 		return addUserStatement.executeUpdate() == 1;
+	}
+	public boolean updateUser(User user) throws SQLException {
+		updateUserStatement.setString(1, user.getfName());
+		updateUserStatement.setString(2, user.getlName());
+		updateUserStatement.setString(3, user.getPhone());
+		updateUserStatement.setString(4, user.getPassword());
+		updateUserStatement.setString(5, user.getEmail());
+		updateUserStatement.setString(6, user.getShipAddress());
+		updateUserStatement.setString(7, user.getUserName());
+		return updateUserStatement.executeUpdate() == 1;
 	}
 	public boolean promoteUser(String userName) throws SQLException {
 		promoteUserStatement.setString(1, userName);
