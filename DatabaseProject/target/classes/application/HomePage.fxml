@@ -33,7 +33,7 @@
                     <items>
                       <MenuItem mnemonicParsing="false">
                            <graphic>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #557C55;" text="View Cart">
+                              <Button fx:id="ViewCartButton" mnemonicParsing="false" onAction="#ViewCart" onMouseClicked="#ViewCart" style="-fx-background-color: #557C55;" text="View Cart">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -41,7 +41,7 @@
                            </graphic></MenuItem>
                       <MenuItem mnemonicParsing="false">
                            <graphic>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #DB6B97;" text="Check Out">
+                              <Button fx:id="CheckOutButton" mnemonicParsing="false" onMouseClicked="#CheckOut" style="-fx-background-color: #DB6B97;" text="Check Out">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -138,7 +138,10 @@
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#Search" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #8843F2;" text="Search" textFill="WHITE" />
+                  <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#Search" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #8843F2;" text="Search" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </graphic>
             </Menu>
         </menus>

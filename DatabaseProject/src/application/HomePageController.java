@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 public class HomePageController {
 	
 	@FXML
-	private Button SignOutButton, EditProfileButton, SearchButton;
+	private Button SignOutButton, EditProfileButton, SearchButton, ViewCartButton, CheckOutButton;
 	
 	@FXML
 	private Label TotalPriceLabel;
@@ -35,7 +35,7 @@ public class HomePageController {
 	@FXML
 	private void EditProfile(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
-		m.changeScene("EditProfilePage.fxml");	
+		m.changeScene("ProfilePage.fxml");	
 	}
 	
 	@FXML
@@ -65,5 +65,21 @@ public class HomePageController {
 		
 		//search in the data base for what the user wanted
 		
+	}
+	
+	@FXML
+	private void ViewCart(MouseEvent mouseEvent) throws IOException {
+		Main m = new Main();
+		m.changeScene("ViewCart.fxml");	
+	}
+	
+	@FXML
+	private void CheckOut(MouseEvent mouseEvent) throws IOException {
+		// Change the total price label and make it equals zero
+		
+		// 
+		
+		Main m = new Main();
+		m.changeScene("Home.fxml"); // to make the user sign out	
 	}
 }
