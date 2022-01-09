@@ -3,7 +3,6 @@
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS BOOK_STORE ;
 USE BOOK_STORE ;
-
 -- -----------------------------------------------------
 -- Table PUBLISHERS
 -- -----------------------------------------------------
@@ -122,7 +121,6 @@ CREATE TABLE IF NOT EXISTS MANAGERS (
     ON UPDATE CASCADE);
 -- Hard coded Manager insertion
 INSERT INTO MANAGERS VALUES('Manager');
-
 -- -----------------------------------------------------
 -- Table SALES
 -- -----------------------------------------------------
