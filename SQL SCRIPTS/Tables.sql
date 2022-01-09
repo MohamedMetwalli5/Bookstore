@@ -12,6 +12,9 @@ CREATE TABLE IF NOT EXISTS PUBLISHERS (
   ADDRESS VARCHAR(45) NOT NULL,
   PHONE_NUM CHAR(11) NOT NULL,
   PRIMARY KEY (NAME));
+INSERT INTO PUBLISHERS VALUES('ElSherouq','Egypt','01111221758');
+INSERT INTO PUBLISHERS VALUES('Nahdet masr','Egypt','01234421758');
+INSERT INTO PUBLISHERS VALUES('Dar-ElKarma','Syria','01111221123');
 
 
 -- -----------------------------------------------------
@@ -21,7 +24,8 @@ CREATE TABLE IF NOT EXISTS AUTHORS (
   NAME VARCHAR(45) NOT NULL,
   PRIMARY KEY (NAME),
   UNIQUE INDEX NAME_UNIQUE (NAME ASC) VISIBLE);
-
+INSERT INTO AUTHORS VALUES('Seif');
+INSERT INTO AUTHORS VALUES('Mahmoud');
 
 -- -----------------------------------------------------
 -- Table CATEGORY
@@ -30,7 +34,11 @@ CREATE TABLE IF NOT EXISTS CATEGORY (
   NAME VARCHAR(10) NOT NULL,
   PRIMARY KEY (NAME),
   UNIQUE INDEX NAME_UNIQUE (NAME ASC) VISIBLE);
-
+INSERT INTO CATEGORY VALUES('Science');
+INSERT INTO CATEGORY VALUES('Art');
+INSERT INTO CATEGORY VALUES('Religion');
+INSERT INTO CATEGORY VALUES('History');
+INSERT INTO CATEGORY VALUES('Geography');
 
 -- -----------------------------------------------------
 -- Table BOOKS
@@ -98,7 +106,8 @@ CREATE TABLE IF NOT EXISTS USERS (
   PRIMARY KEY (NAME),
   UNIQUE INDEX EMAIL_UNIQUE (EMAIL ASC) VISIBLE,
   INDEX USER_NAME_IDX (NAME ASC) VISIBLE);
-
+-- Hard coded Manager insertion
+INSERT INTO USERS VALUES('Manager','Init','Manager','01111221758','turkish coffee','admin@admin.com','Egypt');
 
 -- -----------------------------------------------------
 -- Table MANAGERS
@@ -111,7 +120,8 @@ CREATE TABLE IF NOT EXISTS MANAGERS (
     REFERENCES USERS (NAME)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
-
+-- Hard coded Manager insertion
+INSERT INTO MANAGERS VALUES('Manager');
 
 -- -----------------------------------------------------
 -- Table SALES
