@@ -1,3 +1,4 @@
+![DBMS](https://img.shields.io/badge/Database%20Management%20System-MySQL%20-yellow.svg)
 ![License](https://img.shields.io/badge/License-GPL&ndash;3.0%20-red.svg)
 
 # The Database Project
