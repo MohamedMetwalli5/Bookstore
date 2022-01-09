@@ -7,10 +7,10 @@
 This is Analysis, design, and implementation of a database system to support the operations of a simplified online bookstore. And the creation of the necessary forms to perform these operations.
 
 ## The Main Operations
-1. Adding new books
+* Adding new books
 To add a new book, the user enters the properties of the new book along with a threshold (the minimum
 quantity in stock to be maintained for that book).
-2. Modifying existing books
+* Modifying existing books
 For updating an existing book, the user first searches for the book then he does the required update. For a given
 book, the user can update the quantity in stock when a copy or more of the book is sold. The user cannot update
 the quantity of a book if this update will cause the quantity of a book in stock to be negative.
