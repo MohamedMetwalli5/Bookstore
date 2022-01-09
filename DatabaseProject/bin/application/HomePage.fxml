@@ -1,35 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="670.0" style="-fx-background-color: FFCDDD;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="925.0" style="-fx-background-color: FFCDDD;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
    <children>
-      <MenuBar layoutY="1.0" prefHeight="34.0" prefWidth="670.0">
+      <MenuBar layoutY="1.0" prefHeight="34.0" prefWidth="925.0">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
-                  <Button mnemonicParsing="false" style="-fx-background-color: FFAB76;" text="Sign Out" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: FFAB76;" text="Sign Out">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </graphic>
           </Menu>
           <Menu mnemonicParsing="false">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
                <graphic>
                   <MenuButton mnemonicParsing="false" style="-fx-background-color: #95CD41;" text="Shopping Cart">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #557C55;" text="View Cart">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </graphic></MenuItem>
+                      <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #DB6B97;" text="Check Out">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </graphic></MenuItem>
                     </items>
                   </MenuButton>
                </graphic>
           </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #548CFF;" text="Edit Profile">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </graphic>
+            </Menu>
+        </menus>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MenuBar>
+      <Label layoutX="123.0" layoutY="46.0" prefHeight="34.0" prefWidth="88.0" text="0 $" textFill="#636163">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="45.0" prefHeight="34.0" prefWidth="158.0" text="Total Price : " textFill="#9f00b1">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="80.0" prefHeight="82.0" prefWidth="300.0" text="Book Store">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <TableView layoutX="4.0" layoutY="193.0" prefHeight="406.0" prefWidth="918.0">
+        <columns>
+          <TableColumn prefWidth="74.39999103546143" text="ISBN" />
+          <TableColumn prefWidth="168.79998779296875" text="Title" />
+            <TableColumn prefWidth="174.40003967285156" text="Author" />
+            <TableColumn prefWidth="184.800048828125" text="Publisher" />
+            <TableColumn prefWidth="103.199951171875" text="Publication Year" />
+            <TableColumn prefWidth="86.39996337890625" text="Selling Price" />
+            <TableColumn prefWidth="129.60009765625" text="Category" />
+        </columns>
+      </TableView>
+      <MenuBar layoutX="-1.0" layoutY="155.0" prefHeight="34.0" prefWidth="925.0">
+        <menus>
+          <Menu mnemonicParsing="false">
+               <graphic>
+                  <TextField promptText="Insert" />
+               </graphic>
+          </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="60.0" text="ISBN" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="63.0" text="Title" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="77.0" text="Author" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="91.0" text="Publisher" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="131.0" text="Publication Year" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="113.0" text="Selling Price" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="95.0" text="Category" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #8843F2;" text="Search" textFill="WHITE" />
+               </graphic>
+            </Menu>
         </menus>
       </MenuBar>
    </children>

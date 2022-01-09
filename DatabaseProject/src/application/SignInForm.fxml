@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="427.0" style="-fx-background-color: #faf498;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="427.0" style="-fx-background-color: #faf498;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignInFormController">
    <children>
       <TextField alignment="CENTER" layoutX="106.0" layoutY="142.0" prefHeight="13.0" prefWidth="202.0" promptText="E-mail">
          <font>
@@ -19,7 +19,7 @@
          </font></PasswordField>
     <AnchorPane layoutX="128.0" layoutY="73.0" />
       <SplitPane orientation="VERTICAL" prefHeight="93.0" prefWidth="427.0" style="-fx-background-image: C:\Users\DELL\Downloads\pattern_circle.png" AnchorPane.leftAnchor="0.0" />
-      <Button layoutX="176.0" layoutY="259.0" mnemonicParsing="false" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER">
+      <Button fx:id="SignInButton" layoutX="176.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#SignIn" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
