@@ -1,0 +1,138 @@
+-- -----------------------------------------------------
+-- Schema BOOK_STORE
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS BOOK_STORE ;
+USE BOOK_STORE ;
+
+-- -----------------------------------------------------
+-- Table PUBLISHERS
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS PUBLISHERS (
+  NAME VARCHAR(45) NOT NULL,
+  ADDRESS VARCHAR(45) NOT NULL,
+  PHONE_NUM CHAR(11) NOT NULL,
+  PRIMARY KEY (NAME));
+
+
+-- -----------------------------------------------------
+-- Table AUTHORS
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS AUTHORS (
+  NAME VARCHAR(45) NOT NULL,
+  PRIMARY KEY (NAME),
+  UNIQUE INDEX NAME_UNIQUE (NAME ASC) VISIBLE);
+
+
+-- -----------------------------------------------------
+-- Table CATEGORY
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS CATEGORY (
+  NAME VARCHAR(10) NOT NULL,
+  PRIMARY KEY (NAME),
+  UNIQUE INDEX NAME_UNIQUE (NAME ASC) VISIBLE);
+
+
+-- -----------------------------------------------------
+-- Table BOOKS
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS BOOKS (
+  ISBN CHAR(13) NOT NULL,
+  TITLE VARCHAR(45) NOT NULL,
+  AUTHOR VARCHAR(45) NOT NULL,
+  PUBLISHER VARCHAR(45) NOT NULL,
+  PUBLICATION_YEAR INT NOT NULL,
+  SELLING_PRICE DOUBLE NOT NULL,
+  CATEGORY VARCHAR(10) NOT NULL,
+  MIN_QUANTITY INT NOT NULL,
+  QUANTITY INT NOT NULL,
+  PRIMARY KEY (ISBN),
+  UNIQUE INDEX ISBN_UNIQUE (ISBN ASC) VISIBLE,
+  INDEX PUB_NAME_idx (PUBLISHER ASC) VISIBLE,
+  INDEX AUTH_NAME_FK_idx (AUTHOR ASC) VISIBLE,
+  INDEX CAT_FK_idx (CATEGORY ASC) VISIBLE,
+  CONSTRAINT PUB_NAME_FK
+    FOREIGN KEY (PUBLISHER)
+    REFERENCES PUBLISHERS (NAME)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT AUTH_NAME_FK
+    FOREIGN KEY (AUTHOR)
+    REFERENCES AUTHORS (NAME)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT CAT_FK
+    FOREIGN KEY (CATEGORY)
+    REFERENCES CATEGORY (NAME)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+-- -----------------------------------------------------
+-- Table BOOK_ORDER
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS BOOK_ORDER (
+  ID INT NOT NULL AUTO_INCREMENT,
+  ISBN CHAR(13) NOT NULL,
+  QUANTITY INT NOT NULL,
+  ORDER_DATE DATETIME NOT NULL,
+  PRIMARY KEY (ID),
+  INDEX BOOK_ISBN_FK_idx (ISBN ASC) VISIBLE,
+  CONSTRAINT BOOK_ISBN_FK
+    FOREIGN KEY (ISBN)
+    REFERENCES BOOKS (ISBN)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table USERS
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS USERS (
+  NAME VARCHAR(45) NOT NULL,
+  FNAME VARCHAR(45) NOT NULL,
+  LNAME VARCHAR(45) NOT NULL,
+  PHONE_NUM CHAR(11) NOT NULL,
+  PASSWORD VARCHAR(45) NOT NULL,
+  EMAIL VARCHAR(45) NOT NULL,
+  SHIP_ADDRESS VARCHAR(45) NOT NULL,
+  PRIMARY KEY (NAME),
+  UNIQUE INDEX EMAIL_UNIQUE (EMAIL ASC) VISIBLE,
+  INDEX USER_NAME_IDX (NAME ASC) VISIBLE);
+
+
+-- -----------------------------------------------------
+-- Table MANAGERS
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS MANAGERS (
+  NAME VARCHAR(45) NOT NULL,
+  PRIMARY KEY (NAME),
+  CONSTRAINT MAG_FK
+    FOREIGN KEY (NAME)
+    REFERENCES USERS (NAME)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+-- -----------------------------------------------------
+-- Table SALES
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS SALES (
+  ID INT NOT NULL AUTO_INCREMENT,
+  USER_NAME VARCHAR(45) NOT NULL,
+  ISBN CHAR(13) NOT NULL,
+  SALE_TIME DATETIME NOT NULL,
+  QUANTITY INT NOT NULL,
+  SALE_PRICE DOUBLE NOT NULL,
+  PRIMARY KEY (ID),
+  INDEX UNAME_FK_idx (USER_NAME ASC) VISIBLE,
+  INDEX BOOK_FK_idx (ISBN ASC) VISIBLE,
+  CONSTRAINT UNAME_FK
+    FOREIGN KEY (USER_NAME)
+    REFERENCES USERS (NAME)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT BOOK_FK
+    FOREIGN KEY (ISBN)
+    REFERENCES BOOKS (ISBN)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
