@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.entities.Book;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -41,7 +42,7 @@ public class ViewCartPageController implements Initializable{
 
     @FXML
     public void removeFromCart(){
-
+    	
     }
 
 }

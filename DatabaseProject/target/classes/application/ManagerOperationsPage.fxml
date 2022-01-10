@@ -120,7 +120,7 @@
       </MenuBar>
       <TextField fx:id="AddBookAuthorTextField" layoutX="260.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Author" />
       <Button fx:id="GenerateReportButton" layoutX="32.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#GenerateReport" style="-fx-background-color: #9A0680;" text="Generate Report" textFill="WHITE" />
-      <TextField fx:id="CategoryTextField" layoutX="149.0" layoutY="165.0" prefHeight="26.0" prefWidth="98.0" promptText="Category" />
-      <TextField fx:id="PublisherTextField" layoutX="260.0" layoutY="165.0" prefHeight="26.0" prefWidth="98.0" promptText="Publisher" />
+      <TextField fx:id="AddBookCategoryTextField" layoutX="149.0" layoutY="165.0" prefHeight="26.0" prefWidth="98.0" promptText="Category" />
+      <TextField fx:id="AddBookCategoryTextField" layoutX="260.0" layoutY="165.0" prefHeight="26.0" prefWidth="98.0" promptText="Publisher" />
    </children>
 </AnchorPane>
