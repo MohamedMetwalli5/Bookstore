@@ -98,7 +98,11 @@ public class ViewCartPageController implements Initializable{
 			e.printStackTrace();
 		}
         BookManager bm2 = Main.db.getBookManager();
-        bm2.checkOut(Main.TheUserName, lc);
+        try {
+			bm2.checkOut(Main.TheUserName, lc);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     } 
 
     @FXML
