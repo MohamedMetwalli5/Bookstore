@@ -20,7 +20,7 @@ public class ManagerOperationsPageController {
 	private Button BackButton, SignOutButton, SaveAddBookButton, SaveModifyBookButton, OrderBooksButton, SearchBookButton, AddManagerButton;
 	
 	@FXML
-	private TextField AddBookISBNNumberTextField, AddBookTitleTextField, AddBookPublicationYearTextField, AddBookSellingPriceTextField, AddBookAuthorTextField;
+	private TextField AddBookISBNNumberTextField, AddBookTitleTextField, AddBookPublicationYearTextField, AddBookSellingPriceTextField, AddBookAuthorTextField, AddBookCategoryTextField, AddBookPublisherTextField;
 
 	@FXML
 	private TextField ModifyBookISBNNumberTextField, ModifyBookNewQuantityTextField;

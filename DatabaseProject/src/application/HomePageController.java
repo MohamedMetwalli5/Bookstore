@@ -26,7 +26,7 @@ import javafx.scene.input.MouseEvent;
 public class HomePageController implements Initializable{
 	
 	@FXML
-	private Button SignOutButton, EditProfileButton, ManagerOperationsButton, SearchButton, ViewCartButton, CheckOutButton;
+	private Button SignOutButton, EditProfileButton, ManagerOperationsButton, SearchButton, ViewCartButton;
 	
 	@FXML
 	private Label TotalPriceLabel;
@@ -221,17 +221,17 @@ public class HomePageController implements Initializable{
 	@FXML
 	private void ViewCart(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
-		m.changeScene("ViewCart.fxml");	
+		m.changeScene("ViewCartPage.fxml");	
 	}
 	
-	@FXML
-	private void CheckOut(MouseEvent mouseEvent) throws IOException, SQLException {
-		// Change the total price label and make it equals zero
-		
-		BookManager bm = Main.db.getBookManager();
-		bm.emptyCart(Main.TheUserName);
-		
-		Main m = new Main();
-		m.changeScene("Home.fxml"); // to make the user sign out	
-	}
+//	@FXML
+//	private void CheckOut(MouseEvent mouseEvent) throws IOException, SQLException {
+//		// Change the total price label and make it equals zero
+//		
+//		BookManager bm = Main.db.getBookManager();
+//		bm.emptyCart(Main.TheUserName);
+//		
+//		Main m = new Main();
+//		m.changeScene("Home.fxml"); // to make the user sign out	
+//	}
 }

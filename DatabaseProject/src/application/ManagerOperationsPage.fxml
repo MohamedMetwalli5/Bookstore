@@ -23,18 +23,6 @@
       <TextField fx:id="AddBookTitleTextField" layoutX="149.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Title" />
       <TextField fx:id="AddBookPublicationYearTextField" layoutX="29.0" layoutY="165.0" prefHeight="26.0" prefWidth="106.0" promptText="Publication year" />
       <TextField fx:id="AddBookSellingPriceTextField" layoutX="366.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Selling price" />
-      <MenuButton layoutX="155.0" layoutY="165.0" mnemonicParsing="false" style="-fx-background-color: #5EBEC4;" text="Category">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Science" />
-          <MenuItem mnemonicParsing="false" text="Art" />
-            <MenuItem mnemonicParsing="false" text="Religion" />
-            <MenuItem mnemonicParsing="false" text="History" />
-            <MenuItem mnemonicParsing="false" text="Geography" />
-        </items>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </MenuButton>
       <Label layoutX="30.0" layoutY="216.0" prefHeight="32.0" prefWidth="138.0" text="Modify Book">
          <font>
             <Font size="22.0" />
@@ -52,18 +40,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <SplitMenuButton layoutX="252.0" layoutY="165.0" mnemonicParsing="false" text="Add Publisher">
-        <items>
-          <MenuItem mnemonicParsing="false">
-               <graphic>
-                  <TextField />
-               </graphic>
-            </MenuItem>
-        </items>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </SplitMenuButton>
       <Label layoutX="30.0" layoutY="378.0" prefHeight="32.0" prefWidth="166.0" text="Search For Book">
          <font>
             <Font size="22.0" />
@@ -144,5 +120,7 @@
       </MenuBar>
       <TextField fx:id="AddBookAuthorTextField" layoutX="260.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Author" />
       <Button fx:id="GenerateReportButton" layoutX="32.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#GenerateReport" style="-fx-background-color: #9A0680;" text="Generate Report" textFill="WHITE" />
+      <TextField fx:id="AddBookCategoryTextField" layoutX="149.0" layoutY="165.0" prefHeight="26.0" prefWidth="98.0" promptText="Category" />
+      <TextField fx:id="AddBookCategoryTextField" layoutX="260.0" layoutY="165.0" prefHeight="26.0" prefWidth="98.0" promptText="Publisher" />
    </children>
 </AnchorPane>
