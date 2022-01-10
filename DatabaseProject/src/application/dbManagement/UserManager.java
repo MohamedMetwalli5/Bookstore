@@ -11,6 +11,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class UserManager {
 	private PreparedStatement addUserStatement;
 	private PreparedStatement updateUserStatement;
+	private PreparedStatement getUserStatement;
 	private PreparedStatement promoteUserStatement;
 	private CallableStatement isManagerStatement;
 	/*private PreparedStatement addPublisherStatement;
@@ -32,6 +33,7 @@ public class UserManager {
 		
 		signInStatement = connection.prepareCall("{? = CALL SIGN_IN(?, ?)}");
 		signOutStatement = connection.prepareCall("{CALL SIGN_OUT(?)}");
+		getUserStatement = connection.prepareStatement("SELECT * FROM USERS WHERE NAME = ?");
 		
 		
 	}
@@ -55,6 +57,21 @@ public class UserManager {
 		updateUserStatement.setString(7, user.getUserName());
 		System.out.println(updateUserStatement);
 		return updateUserStatement.executeUpdate() == 1;
+	}
+	public User getUser(String userName) throws SQLException{
+		getUserStatement.setString(1, userName);
+		ResultSet result = getUserStatement.executeQuery();
+		User user = new User();
+		if(!result.next())
+			return null;
+		user.setUserName(result.getString(1));
+		user.setfName(result.getString(2));
+		user.setlName(result.getString(3));
+		user.setPhone(result.getString(4));
+		user.setPassword(result.getString(5));
+		user.setEmail(result.getString(6));
+		user.setShipAddress(result.getString(7));
+		return user;
 	}
 	public boolean promoteUser(String userName) throws SQLException {
 		promoteUserStatement.setString(1, userName);
