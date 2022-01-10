@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="top10Books" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="644b0596-84ef-42f0-8e8f-e55d3dda0808">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql_book_store_db"/>
+	<queryString language="plsql">
+		<![CDATA[{CALL TOP_10_BOOKS()}]]>
+	</queryString>
+	<field name="ISBN" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ISBN"/>
+		<property name="com.jaspersoft.studio.field.label" value="ISBN"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOKS"/>
+	</field>
+	<field name="TITLE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TITLE"/>
+		<property name="com.jaspersoft.studio.field.label" value="TITLE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOKS"/>
+	</field>
+	<field name="TOTAL_SALES" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_SALES"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_SALES"/>
+	</field>
+	<group name="ISBN">
+		<groupExpression><![CDATA[$F{ISBN}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="540" height="50" uuid="6898704f-611c-4d6d-8e70-d41caee67c9d"/>
+				<textElement textAlignment="Center">
+					<font size="29"/>
+				</textElement>
+				<text><![CDATA[Top 10 selling books]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="180" height="20" uuid="0372eb28-73e3-47e5-a7c0-79041e5dfaa8"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[ISBN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="4" width="200" height="20" uuid="4f8a8fe8-ca1f-442c-8c46-3cc89da66a28"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="4" width="180" height="20" uuid="046e9a95-a6fa-4ba7-b700-7502517fbf24"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Total sales]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="180" height="20" uuid="5d531586-0fb0-43e0-b1fc-82830b15a729"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISBN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="200" height="20" uuid="37718420-321c-4f0f-89b5-b18ae4b988f3"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TITLE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="180" height="20" uuid="d984ebd6-a97b-474c-9a53-0ae4f5ffb396"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_SALES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
