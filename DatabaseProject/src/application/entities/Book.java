@@ -65,4 +65,11 @@ public class Book {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	
+	@Override 
+	public String toString(){
+		return "[ "+this.getIsbn()+" "+this.getTitle()+" "+this.getAuthor()+" "
+			+this.getPublisher()+" "+this.getCategory()+" "+this.getPublicationYear()+" "+this.getSellingPrice()+" "
+			+this.getQuantity()+" "+this.getMinQuantity()+" ]";
+	}
 }

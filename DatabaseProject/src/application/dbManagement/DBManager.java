@@ -1,13 +1,11 @@
 package application.dbManagement;
 import java.sql.*;
+
 public class DBManager {
 	BookManager bookManager;
 	UserManager userManager;
-	Connection connection;
+	Connection connection; 
 	public DBManager() throws SQLException {
-		//Start connection
-		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        System.out.println("before connection");
         connection =DriverManager.getConnection(
         				"jdbc:mysql://127.0.0.1:3306/book_store","root","1234");
         bookManager = new BookManager(connection);
@@ -38,7 +36,19 @@ public class DBManager {
 //            System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
 //            con.close();
 //        }catch(Exception e){ System.out.println(e);}  
-//    }  
+//    }
+	/*public static void main(String args[]){
+        try{
+            System.out.println("before connection");
+            Connection con =DriverManager.getConnection(
+    				"jdbc:mysql://127.0.0.1:3306/BOOK_STORE","admin","admin");
+            JasperDesign design = JRXmlLoader.load("src/application/reports/top5Customers.jrxml");
+            JasperReport report = JasperCompileManager.compileReport(design);
+            JasperPrint jprint = JasperFillManager.fillReport(report, null, con);
+            JasperViewer.viewReport(jprint, false);
+            con.close();
+        }catch(Exception e){ System.out.println(e);}  
+    }  */
 	
 	
 }

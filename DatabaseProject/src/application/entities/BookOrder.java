@@ -1,6 +1,6 @@
 package application.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BookOrder {
 	private int id;
