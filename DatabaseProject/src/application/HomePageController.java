@@ -76,21 +76,14 @@ public class HomePageController implements Initializable{
 		CategoryColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("category"));
 		
 		BookManager bm = Main.db.getBookManager();
-		List<Book> lb;
 		try {
-			lb = bm.getBooks();
+			List<Book> lb = bm.getBooks();
 			BooksTable.setItems(GetBooks(lb));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	@FXML
-	private void Display(MouseEvent mouseEvent) throws SQLException {
-		BookManager bm = Main.db.getBookManager();
-		List<Book> lb = bm.getBooks();
-		System.out.println(lb.get(0).getAuthor());
-	}
 	
 	@FXML
 	private void SignOut(MouseEvent mouseEvent) {
