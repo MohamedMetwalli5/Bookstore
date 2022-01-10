@@ -55,7 +55,10 @@ public class HomePageController implements Initializable{
     private TableColumn<Book, Double> SellingPriceColumn;
 	@FXML
     private TableColumn<Book, String> CategoryColumn;
-	
+	@FXML 
+	private TextField bookIsbn;
+	@FXML
+	private TextField bookQuantity;
 	
 	ObservableList<Book> GetBooks(List<Book> BooksList){
         ObservableList<Book> ObservableBooksList = FXCollections.observableArrayList();
@@ -223,7 +226,17 @@ public class HomePageController implements Initializable{
 		Main m = new Main();
 		m.changeScene("ViewCartPage.fxml");	
 	}
-	
+	@FXML 
+	private void addToCard(){
+		if(!bookIsbn.getText().isEmpty() && !bookQuantity.getText().isEmpty()){
+			try {
+				Main.db.getBookManager().addToCart(Main.TheUserName, bookIsbn.getText().trim(), Integer.parseInt(bookQuantity.getText().trim()));
+			} catch (NumberFormatException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 //	@FXML
 //	private void CheckOut(MouseEvent mouseEvent) throws IOException, SQLException {
 //		// Change the total price label and make it equals zero
