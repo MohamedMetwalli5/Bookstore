@@ -122,6 +122,15 @@
       </Button>
       <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="490.0">
         <menus>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Button fx:id="BackButton" mnemonicParsing="false" onMouseClicked="#GetPreviousScene" style="-fx-background-color: #6998AB;" text="Back">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </graphic>
+            </Menu>
           <Menu mnemonicParsing="false">
                <graphic>
                   <Button fx:id="SignOutButton" mnemonicParsing="false" onMouseClicked="#SignOut" style="-fx-background-color: FFAB76;" text="Sign Out">
