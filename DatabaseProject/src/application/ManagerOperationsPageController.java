@@ -17,7 +17,7 @@ import net.sf.jasperreports.engine.JRException;
 public class ManagerOperationsPageController {
 	
 	@FXML
-	private Button SignOutButton, SaveAddBookButton, SaveModifyBookButton, OrderBooksButton, SearchBookButton, AddManagerButton;
+	private Button BackButton, SignOutButton, SaveAddBookButton, SaveModifyBookButton, OrderBooksButton, SearchBookButton, AddManagerButton;
 	
 	@FXML
 	private TextField AddBookISBNNumberTextField, AddBookTitleTextField, AddBookPublicationYearTextField, AddBookSellingPriceTextField, AddBookAuthorTextField;
@@ -30,6 +30,16 @@ public class ManagerOperationsPageController {
 
 	@FXML
 	private TextField UserNameTextField;
+	
+	@FXML
+	private void GetPreviousScene(MouseEvent mouseEvent) {
+		Main m = new Main();
+		try {
+			m.changeScene("HomePage.fxml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@FXML
 	private void SignOut(MouseEvent mouseEvent) {
@@ -125,8 +135,14 @@ public class ManagerOperationsPageController {
 		
 		UserManager um = Main.db.getUserManager();
 		try {
+<<<<<<< HEAD
 			if(this.UserNameTextField.getLength()!=0)
 				um.promoteUser(this.UserNameTextField.getText());
+=======
+			if(this.UserNameTextField.getText() != null && this.UserNameTextField.getText().length() > 0) {
+				um.promoteUser(this.UserNameTextField.getText());	
+			}
+>>>>>>> refs/remotes/origin/master
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
