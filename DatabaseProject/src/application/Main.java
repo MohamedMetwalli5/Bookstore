@@ -2,6 +2,7 @@ package application;
 	
 import java.io.IOException;
 
+import application.dbManagement.DBManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -14,10 +15,14 @@ public class Main extends Application {
 	
 	private static Stage stg;
 	
+	public static DBManager db;
+	public static String TheUserName = "", ThePassword = "";
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			stg = primaryStage;
+			db = new DBManager();
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Home.fxml"));
 			Scene scene = new Scene(root);
 //			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

@@ -33,7 +33,7 @@
                     <items>
                       <MenuItem mnemonicParsing="false">
                            <graphic>
-                              <Button fx:id="ViewCartButton" mnemonicParsing="false" onAction="#ViewCart" onMouseClicked="#ViewCart" style="-fx-background-color: #557C55;" text="View Cart">
+                              <Button fx:id="ViewCartButton" mnemonicParsing="false" onMouseClicked="#ViewCart" style="-fx-background-color: #557C55;" text="View Cart">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

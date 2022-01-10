@@ -1,7 +1,10 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import application.dbManagement.BookManager;
+import application.dbManagement.UserManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,7 +30,10 @@ public class HomePageController {
 	private static String SearchType = "Title";
 	
 	@FXML
-	private void SignOut(MouseEvent mouseEvent) throws IOException {
+	private void SignOut(MouseEvent mouseEvent) throws IOException, SQLException {
+		UserManager um = Main.db.getUserManager();
+		um.signOut(Main.TheUserName);
+		
 		Main m = new Main();
 		m.changeScene("Home.fxml");	
 	}
@@ -74,10 +80,11 @@ public class HomePageController {
 	}
 	
 	@FXML
-	private void CheckOut(MouseEvent mouseEvent) throws IOException {
+	private void CheckOut(MouseEvent mouseEvent) throws IOException, SQLException {
 		// Change the total price label and make it equals zero
 		
-		// 
+		BookManager bm = Main.db.getBookManager();
+		bm.emptyCart(Main.TheUserName);
 		
 		Main m = new Main();
 		m.changeScene("Home.fxml"); // to make the user sign out	

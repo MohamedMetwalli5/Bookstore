@@ -9,7 +9,7 @@ public class DBManager {
 		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         System.out.println("before connection");
         connection =DriverManager.getConnection(
-        				"jdbc:mysql://127.0.0.1:3306/LIBRARY","user","user");
+        				"jdbc:mysql://127.0.0.1:3306/world","root","1234");
         bookManager = new BookManager(connection);
         userManager = new UserManager(connection);
         
@@ -23,22 +23,22 @@ public class DBManager {
 	public void commitAll() throws SQLException {
 		connection.commit();
 	}
-	public static void main(String args[]){
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("before connection");
-            Connection con=DriverManager.getConnection(
-            "jdbc:mysql://127.0.0.1:3306/FSCHOOL","admin","admin");
-
-            System.out.println("before creating the statement");
-            Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("SELECT * FROM users");
-            System.out.println("before getting data");
-            while(rs.next())
-            System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
-            con.close();
-        }catch(Exception e){ System.out.println(e);}  
-    }  
+//	public static void main(String args[]){
+//        try{
+//            Class.forName("com.mysql.jdbc.Driver");
+//            System.out.println("before connection");
+//            Connection con=DriverManager.getConnection(
+//            "jdbc:mysql://127.0.0.1:3306/FSCHOOL","admin","admin");
+//
+//            System.out.println("before creating the statement");
+//            Statement stmt=con.createStatement();
+//            ResultSet rs=stmt.executeQuery("SELECT * FROM users");
+//            System.out.println("before getting data");
+//            while(rs.next())
+//            System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+//            con.close();
+//        }catch(Exception e){ System.out.println(e);}  
+//    }  
 	
 	
 }

@@ -14,16 +14,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="490.0" style="-fx-background-color: #FDF5DF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerOperationsPageController">
    <children>
-      <TextField fx:id="AddBookISBNNumberTextField" layoutX="25.0" layoutY="90.0" prefHeight="26.0" prefWidth="98.0" promptText="ISBN number" />
-      <Label layoutX="26.0" layoutY="50.0" prefHeight="26.0" prefWidth="98.0" text="Add Book">
+      <TextField fx:id="AddBookISBNNumberTextField" layoutX="28.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="ISBN number" />
+      <Label layoutX="29.0" layoutY="84.0" prefHeight="26.0" prefWidth="98.0" text="Add Book">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="AddBookTitleTextField" layoutX="146.0" layoutY="90.0" prefHeight="26.0" prefWidth="98.0" promptText="Title" />
-      <TextField fx:id="AddBookPublicationYearTextField" layoutX="26.0" layoutY="132.0" prefHeight="26.0" prefWidth="106.0" promptText="Publication year" />
-      <TextField fx:id="AddBookSellingPriceTextField" layoutX="146.0" layoutY="132.0" prefHeight="26.0" prefWidth="98.0" promptText="Selling price" />
-      <MenuButton layoutX="258.0" layoutY="132.0" mnemonicParsing="false" style="-fx-background-color: #5EBEC4;" text="Category">
+      <TextField fx:id="AddBookTitleTextField" layoutX="149.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Title" />
+      <TextField fx:id="AddBookPublicationYearTextField" layoutX="29.0" layoutY="165.0" prefHeight="26.0" prefWidth="106.0" promptText="Publication year" />
+      <TextField fx:id="AddBookSellingPriceTextField" layoutX="366.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Selling price" />
+      <MenuButton layoutX="155.0" layoutY="165.0" mnemonicParsing="false" style="-fx-background-color: #5EBEC4;" text="Category">
         <items>
           <MenuItem mnemonicParsing="false" text="Science" />
           <MenuItem mnemonicParsing="false" text="Art" />
@@ -35,24 +35,24 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MenuButton>
-      <Label layoutX="30.0" layoutY="178.0" prefHeight="32.0" prefWidth="138.0" text="Modify Book">
+      <Label layoutX="30.0" layoutY="216.0" prefHeight="32.0" prefWidth="138.0" text="Modify Book">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="ModifyBookISBNNumberTextField" layoutX="30.0" layoutY="210.0" prefHeight="26.0" prefWidth="98.0" promptText="ISBN number" />
-      <TextField fx:id="ModifyBookNewQuantityTextField" layoutX="146.0" layoutY="210.0" prefHeight="26.0" prefWidth="98.0" promptText="New quantitiy" />
-      <Button fx:id="ModifyAddBookButton" layoutX="266.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#SaveModifyBook" style="-fx-background-color: #F92C85;" text="Save">
+      <TextField fx:id="ModifyBookISBNNumberTextField" layoutX="30.0" layoutY="248.0" prefHeight="26.0" prefWidth="98.0" promptText="ISBN number" />
+      <TextField fx:id="ModifyBookNewQuantityTextField" layoutX="146.0" layoutY="248.0" prefHeight="26.0" prefWidth="98.0" promptText="New quantitiy" />
+      <Button fx:id="ModifyAddBookButton" layoutX="266.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#SaveModifyBook" style="-fx-background-color: #F92C85;" text="Save">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="SaveAddBookButton" layoutX="399.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#SaveAddBook" style="-fx-background-color: #F92C85;" text="Save">
+      <Button fx:id="SaveAddBookButton" layoutX="415.0" layoutY="165.0" mnemonicParsing="false" onMouseClicked="#SaveAddBook" style="-fx-background-color: #F92C85;" text="Save">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <SplitMenuButton layoutX="258.0" layoutY="90.0" mnemonicParsing="false" text="Add Publisher">
+      <SplitMenuButton layoutX="252.0" layoutY="165.0" mnemonicParsing="false" text="Add Publisher">
         <items>
           <MenuItem mnemonicParsing="false">
                <graphic>
@@ -64,24 +64,24 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </SplitMenuButton>
-      <Label layoutX="30.0" layoutY="340.0" prefHeight="32.0" prefWidth="166.0" text="Search For Book">
+      <Label layoutX="30.0" layoutY="378.0" prefHeight="32.0" prefWidth="166.0" text="Search For Book">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="SearchBookButton" layoutX="192.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#SearchBook" style="-fx-background-color: #F92D80;" text="Search">
+      <Button fx:id="SearchBookButton" layoutX="192.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#SearchBook" style="-fx-background-color: #F92D80;" text="Search">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="32.0" layoutY="256.0" prefHeight="32.0" prefWidth="138.0" text="Order Books">
+      <Label layoutX="32.0" layoutY="294.0" prefHeight="32.0" prefWidth="138.0" text="Order Books">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="OrderBooksISBNNumberTextField" layoutX="32.0" layoutY="288.0" prefHeight="26.0" prefWidth="98.0" promptText="ISBN number" />
-      <TextField fx:id="OrderBooksNewQuantityTextField" layoutX="148.0" layoutY="288.0" prefHeight="26.0" prefWidth="98.0" promptText="New quantitiy" />
-      <SplitMenuButton layoutX="32.0" layoutY="372.0" mnemonicParsing="false" text="Search Category">
+      <TextField fx:id="OrderBooksISBNNumberTextField" layoutX="32.0" layoutY="326.0" prefHeight="26.0" prefWidth="98.0" promptText="ISBN number" />
+      <TextField fx:id="OrderBooksNewQuantityTextField" layoutX="148.0" layoutY="326.0" prefHeight="26.0" prefWidth="98.0" promptText="New quantitiy" />
+      <SplitMenuButton layoutX="32.0" layoutY="410.0" mnemonicParsing="false" text="Search Category">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -104,18 +104,18 @@
             </MenuItem>
          </items>
       </SplitMenuButton>
-      <Button fx:id="OrderBooksButton" layoutX="268.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#OrderBooks" style="-fx-background-color: #F92C85;" text="Order">
+      <Button fx:id="OrderBooksButton" layoutX="268.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#OrderBooks" style="-fx-background-color: #F92C85;" text="Order">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="32.0" layoutY="424.0" prefHeight="32.0" prefWidth="227.0" text="Add Manager">
+      <Label layoutX="32.0" layoutY="462.0" prefHeight="32.0" prefWidth="227.0" text="Add Manager">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="UserNameTextField" layoutX="181.0" layoutY="428.0" promptText="User Name" />
-      <Button fx:id="AddManagerButton" layoutX="356.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#AddManager" style="-fx-background-color: #F92D80;" text="Add">
+      <TextField fx:id="UserNameTextField" layoutX="181.0" layoutY="466.0" promptText="User Name" />
+      <Button fx:id="AddManagerButton" layoutX="356.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#AddManager" style="-fx-background-color: #F92D80;" text="Add">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -133,5 +133,6 @@
           </Menu>
         </menus>
       </MenuBar>
+      <TextField fx:id="AddBookAuthorTextField" layoutX="260.0" layoutY="123.0" prefHeight="26.0" prefWidth="98.0" promptText="Author" />
    </children>
 </AnchorPane>

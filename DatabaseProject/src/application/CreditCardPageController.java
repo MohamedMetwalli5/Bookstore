@@ -1,7 +1,9 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import application.dbManagement.UserManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,6 +36,13 @@ public class CreditCardPageController {
 	
 	@FXML
 	private void SignOut(MouseEvent mouseEvent) throws IOException {
+		UserManager um = Main.db.getUserManager();
+		try {
+			um.signOut(Main.TheUserName);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		Main m = new Main();
 		m.changeScene("Home.fxml");	
 	}

@@ -10,17 +10,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="427.0" style="-fx-background-color: #faf498;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignInFormController">
    <children>
-      <TextField alignment="CENTER" layoutX="106.0" layoutY="142.0" prefHeight="13.0" prefWidth="202.0" promptText="E-mail">
+      <TextField fx:id="UserName" alignment="CENTER" layoutX="106.0" layoutY="142.0" prefHeight="31.0" prefWidth="219.0" promptText="User Name">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <PasswordField alignment="CENTER" layoutX="106.0" layoutY="200.0" prefHeight="21.0" prefWidth="202.0" promptText="Password">
+      <PasswordField fx:id="Password" alignment="CENTER" layoutX="106.0" layoutY="200.0" prefHeight="31.0" prefWidth="219.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font></PasswordField>
     <AnchorPane layoutX="128.0" layoutY="73.0" />
       <SplitPane orientation="VERTICAL" prefHeight="93.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" />
-      <Button fx:id="SignInButton" layoutX="176.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#SignIn" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER">
+      <Button fx:id="SignInButton" layoutX="184.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#SignIn" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
