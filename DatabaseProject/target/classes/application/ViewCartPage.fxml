@@ -21,7 +21,7 @@
             <TableColumn fx:id="TotalPriceColumn" minWidth="0.0" prefWidth="140.0" text="Total Price" />
         </columns>
       </TableView>
-      <Button fx:id="RemoveFromCartButton" layoutX="526.0" layoutY="46.0" mnemonicParsing="false" onAction="#removeFromCart" onMouseClicked="#RemoveFromCart" prefHeight="24.0" prefWidth="152.0" style="-fx-background-color: #DD4A48;" text="Remove from Cart">
+      <Button fx:id="RemoveFromCartButton" layoutX="526.0" layoutY="46.0" mnemonicParsing="false" onAction="#RemoveFromCart" onMouseClicked="#RemoveFromCart" prefHeight="24.0" prefWidth="152.0" style="-fx-background-color: #DD4A48;" text="Remove from Cart">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

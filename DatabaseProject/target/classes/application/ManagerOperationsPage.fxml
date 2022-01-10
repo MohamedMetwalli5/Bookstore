@@ -90,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <TextField fx:id="AddBookCategoryTextField" layoutX="143.0" layoutY="140.0" prefHeight="26.0" prefWidth="98.0" promptText="Category" />
-      <TextField fx:id="AddBookCategoryTextField" layoutX="248.0" layoutY="140.0" prefHeight="26.0" prefWidth="98.0" promptText="Publisher" />
+      <TextField fx:id="AddBookPublisherTextField" layoutX="248.0" layoutY="140.0" prefHeight="26.0" prefWidth="98.0" promptText="Publisher" />
       <TableView fx:id="OrdersTable" layoutX="6.0" layoutY="415.0" prefHeight="168.0" prefWidth="476.0">
         <columns>
           <TableColumn fx:id="IDColumn" prefWidth="75.0" text="ID" />
@@ -110,7 +110,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="AddBookCategoryTextField1" layoutX="353.0" layoutY="140.0" prefHeight="26.0" prefWidth="98.0" promptText="Quantity" />
-      <TextField fx:id="AddBookCategoryTextField11" layoutX="32.0" layoutY="180.0" prefHeight="26.0" prefWidth="98.0" promptText="MinQuantity" />
+      <TextField fx:id="AddBookQuantityTextField" layoutX="353.0" layoutY="140.0" prefHeight="26.0" prefWidth="98.0" promptText="Quantity" />
+      <TextField fx:id="AddBookMinQuantityTextField" layoutX="32.0" layoutY="180.0" prefHeight="26.0" prefWidth="98.0" promptText="MinQuantity" />
    </children>
 </AnchorPane>
