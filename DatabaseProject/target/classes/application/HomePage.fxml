@@ -108,32 +108,32 @@
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <RadioButton mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="63.0" text="Title" toggleGroup="$SearchTypeGroub" />
+                  <RadioButton fx:id="TitleRadioButton" mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="63.0" text="Title" toggleGroup="$SearchTypeGroub" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <RadioButton mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="77.0" text="Author" toggleGroup="$SearchTypeGroub" />
+                  <RadioButton fx:id="AuthorRadioButton" mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="77.0" text="Author" toggleGroup="$SearchTypeGroub" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <RadioButton mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="91.0" text="Publisher" toggleGroup="$SearchTypeGroub" />
+                  <RadioButton fx:id="PublisherRadioButton" mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="91.0" text="Publisher" toggleGroup="$SearchTypeGroub" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <RadioButton mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="131.0" text="Publication Year" toggleGroup="$SearchTypeGroub" />
+                  <RadioButton fx:id="PublicationYearRadioButton" mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="131.0" text="Publication Year" toggleGroup="$SearchTypeGroub" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <RadioButton mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="113.0" text="Selling Price" toggleGroup="$SearchTypeGroub" />
+                  <RadioButton fx:id="SellingPriceRadioButton" mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="113.0" text="Selling Price" toggleGroup="$SearchTypeGroub" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <RadioButton mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="95.0" text="Category" toggleGroup="$SearchTypeGroub" />
+                  <RadioButton fx:id="CategoryRadioButton" mnemonicParsing="false" onAction="#SelectSearchType" prefHeight="18.0" prefWidth="95.0" text="Category" toggleGroup="$SearchTypeGroub" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">

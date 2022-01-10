@@ -27,6 +27,7 @@ public class SignInFormController {
 		UserManager um = Main.db.getUserManager();
 		try {
 			String UserName = this.UserName.getText(), Password = this.Password.getText();
+			Main.TheUserName = UserName;
 			um.signIn(UserName, Password);
 		} catch (SQLException e) {
 			e.printStackTrace();

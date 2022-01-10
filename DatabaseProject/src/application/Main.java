@@ -16,7 +16,7 @@ public class Main extends Application {
 	private static Stage stg;
 	
 	public static DBManager db;
-	public static String TheUserName = "", ThePassword = "";
+	public static String TheUserName = "";
 	
 	@Override
 	public void start(Stage primaryStage) {

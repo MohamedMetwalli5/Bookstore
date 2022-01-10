@@ -52,7 +52,7 @@ public class ProfilePageController {
 	private void SignOut(MouseEvent mouseEvent) throws IOException, SQLException {
 		
 		UserManager um = Main.db.getUserManager();
-		um.signOut(Main.TheUserName);
+		um.signOut(Main.TheUserName); // TheUserName is a global variable that is set to the user name when the user signs up or signs in
 		
 		Main m = new Main();
 		m.changeScene("Home.fxml");

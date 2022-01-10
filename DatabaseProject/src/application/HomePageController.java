@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 public class HomePageController {
@@ -41,35 +42,86 @@ public class HomePageController {
 	@FXML
 	private void EditProfile(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
-		m.changeScene("ProfilePage.fxml");	
+		m.changeScene("ProfilePage.fxml");
 	}
 	
 	@FXML
 	private void SelectSearchType(ActionEvent event) {
 		if(ISBNRadioButton.isSelected()) {
 			SearchType = "ISBN";
+			System.out.println("ISBN Is Chosen");
 		}else if(TitleRadioButton.isSelected()) {
 			SearchType = "Title";
+			System.out.println("Title Is Chosen");
 		}else if(AuthorRadioButton.isSelected()) {
 			SearchType = "Author";
+			System.out.println("Author Is Chosen");
 		}else if(PublisherRadioButton.isSelected()) {
 			SearchType = "Publisher";
+			System.out.println("Publisher Is Chosen");
 		}else if(PublicationYearRadioButton.isSelected()) {
 			SearchType = "PublicationYear";
+			System.out.println("PublicationYear Is Chosen");
 		}else if(SellingPriceRadioButton.isSelected()) {
 			SearchType = "SellingPrice";
+			System.out.println("SellingPrice Is Chosen");
 		}else if(CategoryRadioButton.isSelected()) {
 			SearchType = "Category";
+			System.out.println("Category Is Chosen");
 		}
 	}
 	
 	@FXML
 	private void Search(MouseEvent mouseEvent) throws IOException {
-		// searching in the data base and display what the user wanted
 		String SearchingText = InsertTextField.getText();
-		
-		
-		//search in the data base for what the user wanted
+		BookManager bm = Main.db.getBookManager();
+		if(SearchType.equals("ISBN")) {
+			try {
+				bm.getBooksByIsbn(SearchingText);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		}else if(SearchType.equals("Title")) {
+			try {
+				bm.getBooksByTitle(SearchingText);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		}else if(SearchType.equals("Author")) {
+			try {
+				bm.getBooksByAuthor(SearchingText);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		}else if(SearchType.equals("Category")) {
+			try {
+				bm.getBooksByCategory(SearchingText);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+		}else if(SearchType.equals("PublicationYear")) {
+			try {
+				bm.getBooksByPublicationYear(Integer.parseInt(SearchType));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}else if(SearchType.equals("SellingPrice")) {
+			try {
+				bm.getBooksWithPrice(Integer.parseInt(SearchingText));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}else if(SearchType.equals("Publisher")) {
+			try {
+				bm.getBooksByPublisher(SearchingText);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
+		}
 		
 	}
 	

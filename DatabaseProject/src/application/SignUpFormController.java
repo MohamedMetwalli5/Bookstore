@@ -32,6 +32,7 @@ public class SignUpFormController {
 		u.setPhone(PhoneNumber);
 		u.setShipAddress(ShippingAddress);
 		
+		Main.TheUserName = UserName;
 		try {
 			um.addUser(u);
 		} catch (SQLException e) {
