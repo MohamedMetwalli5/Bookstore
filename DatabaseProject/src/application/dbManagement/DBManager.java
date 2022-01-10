@@ -9,7 +9,7 @@ public class DBManager {
 		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         System.out.println("before connection");
         connection =DriverManager.getConnection(
-        				"jdbc:mysql://127.0.0.1:3306/LIBRARY","user","user");
+        				"jdbc:mysql://127.0.0.1:3306/BOOK_STORE","admin","admin");
         bookManager = new BookManager(connection);
         userManager = new UserManager(connection);
         
