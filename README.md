@@ -26,25 +26,25 @@ The user can search for a book by ISBN, and title. The user can search for books
 or publisher.
 
 ## Customer Allowed Operations:
-* Edit his personal information including his password
-* Search for books by any of the book’s attributes. (Use indices to speed up searches when possible)
-* Add books to a shopping cart
-* Manage his shopping cart. This includes the following.
-  * View the items in the cart
-  * View the individual and total prices of the books in the cart
-  * Remove items from the cart
-* Checkout a shopping cart
+* Editing his personal information including his password
+* Searching for books by any of the book’s attributes. (Use indices to speed up searches when possible)
+* Adding books to a shopping cart
+* Managing his shopping cart. This includes the following.
+  * Viewing the items in the cart
+  * Viewing the individual and total prices of the books in the cart
+  * Removing items from the cart
+* Checking out a shopping cart
   * The customer is then required to provide a credit card number and its expiry date. This transaction is completed successfully if the credit card information is appropriate.
   * The book’s quantities in the store are updated according to this transaction.
-* Logout of the system
+* Logging out of the system
   * Doing this will remove all the items in the current cart.
 ## Manager Allowed Operations:
-* Add new books
-* Modify existing books
-* Place orders for books
-* Confirm orders
-* Promote registered customers to have managers credentials
-* View the following reports on sales
+* Adding new books
+* Modifying existing books
+* Placing orders for books
+* Confirming orders
+* Promoting registered customers to have managers credentials
+* Viewing the following reports on sales
   * The total sales for books in the previous month
   * The top 5 customers who purchase the most purchase amount in descending order for the last three months
   * The top 10 selling books for the last three months
