@@ -1,20 +1,30 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import application.dbManagement.BookManager;
 import application.dbManagement.UserManager;
+import application.entities.Book;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-public class HomePageController {
+public class HomePageController implements Initializable{
 	
 	@FXML
 	private Button SignOutButton, EditProfileButton, ManagerOperationsButton, SearchButton, ViewCartButton, CheckOutButton;
@@ -29,6 +39,59 @@ public class HomePageController {
 	private RadioButton ISBNRadioButton, TitleRadioButton, AuthorRadioButton, PublisherRadioButton, PublicationYearRadioButton, SellingPriceRadioButton, CategoryRadioButton;
 	
 	private static String SearchType = "Title";
+	
+	@FXML
+	private TableView<Book> BooksTable;
+	@FXML
+    private TableColumn<Book, String> ISBNColumn;
+	@FXML
+    private TableColumn<Book, String> TitleColumn;
+	@FXML
+    private TableColumn<Book, String> AuthorColumn;
+	@FXML
+    private TableColumn<Book, String> PublisherColumn;
+	@FXML
+    private TableColumn<Book, Integer> PublicationYearColumn;
+	@FXML
+    private TableColumn<Book, Double> SellingPriceColumn;
+	@FXML
+    private TableColumn<Book, String> CategoryColumn;
+	
+	
+	ObservableList<Book> GetBooks(List<Book> BooksList){
+        ObservableList<Book> ObservableBooksList = FXCollections.observableArrayList();
+        for(int i=0;i<BooksList.size();i++) {
+        	ObservableBooksList.add(BooksList.get(i));
+        }
+        return ObservableBooksList;
+    }
+	
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+		ISBNColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
+		TitleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
+		AuthorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
+		PublisherColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("publisher"));
+		PublicationYearColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("publicationYear"));
+		SellingPriceColumn.setCellValueFactory(new PropertyValueFactory<Book, Double>("sellingPrice"));
+		CategoryColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("category"));
+		
+		BookManager bm = Main.db.getBookManager();
+		List<Book> lb;
+		try {
+			lb = bm.getBooks();
+			BooksTable.setItems(GetBooks(lb));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void Display(MouseEvent mouseEvent) throws SQLException {
+		BookManager bm = Main.db.getBookManager();
+		List<Book> lb = bm.getBooks();
+		System.out.println(lb.get(0).getAuthor());
+	}
 	
 	@FXML
 	private void SignOut(MouseEvent mouseEvent) {
