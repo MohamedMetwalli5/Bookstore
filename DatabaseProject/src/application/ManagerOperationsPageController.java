@@ -99,32 +99,35 @@ public class ManagerOperationsPageController implements Initializable {
 	}
 	
 	@FXML
-	private void SaveAddBook(MouseEvent mouseEvent) {
-		
-			BookManager bm = Main.db.getBookManager();
-			Book b = new Book();
-			if(AddBookISBNNumberTextField.getLength()!=0
-				&&AddBookTitleTextField.getLength()!=0
-				&&AddBookPublicationYearTextField.getLength()!=0
-				&&AddBookAuthorTextField.getLength()!=0
-				&&AddBookCategoryTextField.getLength()!=0
-				&&AddBookSellingPriceTextField.getLength()!=0
-				&&AddBookPublisherTextField.getLength()!=0){
-					b.setIsbn(AddBookISBNNumberTextField.getText());
-					b.setTitle(AddBookTitleTextField.getText());
-					b.setAuthor(AddBookAuthorTextField.getText());
-					b.setPublisher(AddBookPublisherTextField.getText());
-					b.setPublicationYear(Integer.parseInt(AddBookPublicationYearTextField.getText()));
-					b.setCategory(AddBookCategoryTextField.getText());
-					b.setSellingPrice(Double.parseDouble(AddBookSellingPriceTextField.getText()));
-					
-					try {
-						bm.addBook(b);
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-		}
-	}
+    private void SaveAddBook(MouseEvent mouseEvent) {
+
+            BookManager bm = Main.db.getBookManager();
+            Book b = new Book();
+            if(AddBookISBNNumberTextField.getLength()!=0
+                &&AddBookTitleTextField.getLength()!=0
+                &&AddBookPublicationYearTextField.getLength()!=0
+                &&AddBookAuthorTextField.getLength()!=0
+                &&AddBookCategoryTextField.getLength()!=0
+                &&AddBookSellingPriceTextField.getLength()!=0
+                &&AddBookPublisherTextField.getLength()!=0
+                &&AddBookMinQuantityTextField.getLength()!=0
+                &&AddBookQuantityTextField.getLength()!=0){
+                    b.setIsbn(AddBookISBNNumberTextField.getText());
+                    b.setTitle(AddBookTitleTextField.getText());
+                    b.setAuthor(AddBookAuthorTextField.getText());
+                    b.setPublisher(AddBookPublisherTextField.getText());
+                    b.setPublicationYear(Integer.parseInt(AddBookPublicationYearTextField.getText()));
+                    b.setCategory(AddBookCategoryTextField.getText());
+                    b.setSellingPrice(Double.parseDouble(AddBookSellingPriceTextField.getText()));
+                    b.setQuantity(Integer.parseInt(AddBookQuantityTextField.getText()));
+                    b.setMinQuantity(Integer.parseInt(AddBookMinQuantityTextField.getText()));
+                    try {
+                        bm.addBook(b);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+        }
+    }
 	
 	@FXML
 	private void SaveModifyBook(MouseEvent mouseEvent) {

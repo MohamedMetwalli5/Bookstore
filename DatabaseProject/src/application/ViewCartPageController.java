@@ -91,7 +91,7 @@ public class ViewCartPageController implements Initializable{
     @FXML
     public void CheckOut(MouseEvent mouseEvent){
         UserManager um = Main.db.getUserManager();
-        List<CartItem> lc;
+        List<CartItem> lc = null;
 		try {
 			lc = um.getUserCart(Main.TheUserName);
 		} catch (SQLException e) {
@@ -111,6 +111,7 @@ public class ViewCartPageController implements Initializable{
     	try {
     		if(this.BookISBNTextField.getText() != null && this.BookISBNTextField.getText().length() > 0) {
     			bm.removeFromCart(Main.TheUserName, this.BookISBNTextField.getText());	
+    			CartTable.setItems(GetCartItems(Main.db.getUserManager().getUserCart(Main.TheUserName)));
     		}
 		} catch (SQLException e) {
 			e.printStackTrace();
