@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -29,26 +27,11 @@
           </Menu>
           <Menu mnemonicParsing="false">
                <graphic>
-                  <MenuButton mnemonicParsing="false" style="-fx-background-color: #95CD41;" text="Shopping Cart">
-                    <items>
-                      <MenuItem mnemonicParsing="false">
-                           <graphic>
-                              <Button fx:id="ViewCartButton" mnemonicParsing="false" onMouseClicked="#ViewCart" style="-fx-background-color: #557C55;" text="View Cart">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </graphic></MenuItem>
-                      <MenuItem mnemonicParsing="false">
-                           <graphic>
-                              <Button fx:id="CheckOutButton" mnemonicParsing="false" onMouseClicked="#CheckOut" style="-fx-background-color: #DB6B97;" text="Check Out">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </graphic></MenuItem>
-                    </items>
-                  </MenuButton>
+                  <Button fx:id="ViewCartButton" mnemonicParsing="false" onMouseClicked="#ViewCart" style="-fx-background-color: #557C55;" text="View Cart">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </graphic>
           </Menu>
             <Menu mnemonicParsing="false">
@@ -155,5 +138,8 @@
             <TableColumn fx:id="CategoryColumn" prefWidth="129.60009765625" text="Category" />
         </columns>
       </TableView>
+       <TextField fx:id="bookIsbn" layoutX="504.0" layoutY="121.0" promptText="Book ISBN" />
+      <TextField fx:id="bookQuantity" layoutX="677.0" layoutY="121.0" prefHeight="24.0" prefWidth="81.0" promptText="Quantity" />
+      <Button layoutX="763.0" layoutY="121.0" mnemonicParsing="false" text="Add to cart" />
    </children>
 </AnchorPane>
