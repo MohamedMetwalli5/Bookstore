@@ -2,8 +2,10 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -19,7 +21,6 @@
             <Font size="15.0" />
          </font></PasswordField>
     <AnchorPane layoutX="128.0" layoutY="73.0" />
-      <SplitPane orientation="VERTICAL" prefHeight="93.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" />
       <Button fx:id="SignInButton" layoutX="184.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#SignIn" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
@@ -28,5 +29,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label layoutX="61.0" layoutY="73.0" prefHeight="56.0" prefWidth="305.0" text="Online Bookstore">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <MenuBar prefHeight="26.0" prefWidth="427.0">
+        <menus>
+          <Menu mnemonicParsing="false">
+               <graphic>
+                  <Button fx:id="BackButton" mnemonicParsing="false" onMouseClicked="#GetPreviousScene" style="-fx-background-color: #6998AB;" text="Back">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </graphic>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

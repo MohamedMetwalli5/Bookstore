@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 public class ProfilePageController {
 
 	@FXML
-	private Button SaveButton, SignOut;
+	private Button SaveButton, SignOut, BackButton;
 	
 	@FXML
 	private TextField NewEmail, NewPassword, ConfirmNewPassword, NewPhoneNumber, NewShippingAddress;
@@ -53,6 +53,16 @@ public class ProfilePageController {
 			}	
 		}
 		
+	}
+	
+	@FXML
+	private void GetPreviousScene(MouseEvent mouseEvent) {
+		Main m = new Main();
+		try {
+			m.changeScene("HomePage.fxml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
