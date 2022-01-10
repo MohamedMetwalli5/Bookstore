@@ -17,7 +17,7 @@ public class ProfilePageController {
 	private Button SaveButton, SignOut;
 	
 	@FXML
-	private TextField NewUserName, NewEmail, NewPassword, ConfirmNewPassword, NewPhoneNumber, NewShippingAddress;
+	private TextField NewEmail, NewPassword, ConfirmNewPassword, NewPhoneNumber, NewShippingAddress;
 	
 	@FXML
 	private Label TheUnequalPasswordLabel;
@@ -25,19 +25,27 @@ public class ProfilePageController {
 	@FXML
 	private void Save(MouseEvent mouseEvent) {
 		
-		String NewUserName = this.NewUserName.getText(), NewEmail = this.NewEmail.getText(), NewPassword = this.NewPassword.getText(), ConfirmNewPassword = this.ConfirmNewPassword.getText(), NewPhoneNumber = this.NewPhoneNumber.getText(), NewShippingAddress = this.NewShippingAddress.getText();
+		String  NewEmail = this.NewEmail.getText(), NewPassword = this.NewPassword.getText(), ConfirmNewPassword = this.ConfirmNewPassword.getText(), NewPhoneNumber = this.NewPhoneNumber.getText(), NewShippingAddress = this.NewShippingAddress.getText();
 		//comparing the new values with the empty string value and the old values
-		if(!NewPassword.equals(ConfirmNewPassword)) {
+		if(!NewPassword.equals(ConfirmNewPassword) && NewPassword.length() > 0) {
 			this.TheUnequalPasswordLabel.setText("Confirmation password doesn't equal the new password");
 		}else {
 			this.TheUnequalPasswordLabel.setText("");
 			UserManager um = Main.db.getUserManager();
 			User u = new User();
-			u.setUserName(NewUserName);
-			u.setEmail(NewEmail);
-			u.setPassword(NewPassword);
-			u.setPhone(NewPhoneNumber);
-			u.setShipAddress(NewShippingAddress);
+			System.out.println(NewPassword);
+			if(NewEmail != null && NewEmail != "") {
+				u.setEmail(NewEmail);	
+			}
+			if(NewPassword != null && NewPassword != "") {
+				u.setPassword(NewPassword);
+			}
+			if(NewPhoneNumber != null && NewPhoneNumber != "") {
+				u.setPhone(NewPhoneNumber);
+			}
+			if(NewShippingAddress != null && NewShippingAddress != "") {
+				u.setShipAddress(NewShippingAddress);
+			}
 			try {
 				um.updateUser(u);
 			} catch (SQLException e) {
