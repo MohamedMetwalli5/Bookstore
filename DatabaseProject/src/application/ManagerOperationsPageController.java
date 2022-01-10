@@ -1,20 +1,27 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import application.dbManagement.BookManager;
 import application.dbManagement.UserManager;
 import application.entities.Book;
 import application.entities.BookOrder;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import net.sf.jasperreports.engine.JRException;
 
-public class ManagerOperationsPageController {
+public class ManagerOperationsPageController implements Initializable {
 	
 	@FXML
 	private Button BackButton, SignOutButton, SaveAddBookButton, SaveModifyBookButton, OrderBooksButton, SearchBookButton, AddManagerButton;
@@ -29,8 +36,28 @@ public class ManagerOperationsPageController {
 	private TextField OrderBooksISBNNumberTextField, OrderBooksNewQuantityTextField;
 
 	@FXML
+	private TextField confirmedOrderIdText;
+
+	@FXML
 	private TextField UserNameTextField;
-	
+	@FXML
+	private TableView<BookOrder> OrdersTable;
+	@FXML
+    private TableColumn<BookOrder, String> IDColumn;
+	@FXML
+    private TableColumn<BookOrder, String> ISBNColumn;
+	@FXML
+    private TableColumn<BookOrder, Integer> QuantityColumn;
+	@FXML
+    private TableColumn<BookOrder, Date> OrderDateColumn;
+
+	ObservableList<BookOrder> GetBookOrders(List<BookOrder> orderList){
+        ObservableList<BookOrder> ObservableOrdersList = FXCollections.observableArrayList();
+        for(int i=0;i<orderList.size();i++) {
+        	ObservableOrdersList.add(orderList.get(i));
+        }
+        return ObservableOrdersList;
+    }
 	@FXML
 	private void GetPreviousScene(MouseEvent mouseEvent) {
 		Main m = new Main();
@@ -138,6 +165,17 @@ public class ManagerOperationsPageController {
 			}
 		}
 	}
+	@FXML
+	private void confirmOrder(){
+		if(confirmedOrderIdText.getText().isEmpty())
+			return;
+		try {
+			Main.db.getBookManager().confirmBookOrder(Integer.parseInt(confirmedOrderIdText.getText()));
+		} catch (NumberFormatException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	@FXML
 	private void AddManager(MouseEvent mouseEvent) {
@@ -148,6 +186,20 @@ public class ManagerOperationsPageController {
 				um.promoteUser(this.UserNameTextField.getText());	
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		IDColumn.setCellValueFactory(new PropertyValueFactory<BookOrder, String>("id"));
+		ISBNColumn.setCellValueFactory(new PropertyValueFactory<BookOrder, String>("isbn"));
+		QuantityColumn.setCellValueFactory(new PropertyValueFactory<BookOrder, Integer>("quantity"));
+		OrderDateColumn.setCellValueFactory(new PropertyValueFactory<BookOrder, Date>("orderDate"));
+		BookManager bm = Main.db.getBookManager();
+		try {
+			List<BookOrder> lb = bm.getBookOrders();
+			OrdersTable.setItems(GetBookOrders(lb));
+		} catch (SQLException | ParseException e) {
 			e.printStackTrace();
 		}
 	}
