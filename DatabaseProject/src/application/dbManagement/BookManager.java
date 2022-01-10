@@ -119,6 +119,79 @@ public class BookManager {
 	public List<Book> getBooks() throws SQLException{
 		return resultToBooks(getBooksStatement.executeQuery());
 	}
+	public List<Book> getBooksByIsbn(String isbn) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getIsbn().contains(isbn))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksByTitle(String title) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getTitle().contains(title))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksByAuthor(String author) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getAuthor().contains(author))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksByPublisher(String publisher) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getPublisher().contains(publisher))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksByPublicationYear(int year) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getPublicationYear() == year)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksLessThanOrEqualPrice(double price) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getSellingPrice() <= price)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksMoreThanOrEqualPrice(double price) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getSellingPrice() >= price)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksWithPrice(double price) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getSellingPrice() == price)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	public List<Book> getBooksByCategory(String category) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getCategory().contains(category))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
 	/*private List<Sale> resultToSales(ResultSet result) throws SQLException{
 		Sale sale;
 		List<Sale> saleList = new LinkedList<>();
