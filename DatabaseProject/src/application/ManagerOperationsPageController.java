@@ -95,13 +95,14 @@ public class ManagerOperationsPageController {
 	private void SaveModifyBook(MouseEvent mouseEvent) {
 		
 		BookManager bm = Main.db.getBookManager();
-		Book b = new Book();
-		b.setAuthor(ModifyBookISBNNumberTextField.getText());
-		b.setQuantity(Integer.parseInt(ModifyBookNewQuantityTextField.getText()));
-		try {
-			bm.updateBook(b);
-		} catch (SQLException e) {
-			e.printStackTrace();
+		if(ModifyBookISBNNumberTextField.getLength()!=0&&ModifyBookNewQuantityTextField.getLength()!=0){
+			try {
+				Book b = bm.getBooksByIsbn(ModifyBookISBNNumberTextField.getText()).get(0);
+				b.setQuantity(Integer.parseInt(ModifyBookNewQuantityTextField.getText()));
+				bm.updateBook(b);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -120,14 +121,22 @@ public class ManagerOperationsPageController {
 		}
 	}
 	
-	@FXML
-	private void SearchBook(MouseEvent mouseEvent) {
-		
-	}
 	
 	@FXML
 	private void OrderBooks(MouseEvent mouseEvent) {
-		
+		BookManager bm = Main.db.getBookManager();
+		if(OrderBooksISBNNumberTextField.getLength()!=0&&OrderBooksNewQuantityTextField.getLength()!=0){
+			try {
+				Book b = bm.getBooksByIsbn(OrderBooksISBNNumberTextField.getText()).get(0);
+				BookOrder order = new BookOrder();
+				order.setIsbn(b.getIsbn());
+				order.setOrderDate(new Date(System.currentTimeMillis()));
+				order.setQuantity(Integer.parseInt(OrderBooksNewQuantityTextField.getText()));
+				bm.addBookOrder(order);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@FXML

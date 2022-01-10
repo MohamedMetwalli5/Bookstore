@@ -1,6 +1,7 @@
 package application.dbManagement;
 
 import java.sql.*;
+import java.util.*;
 
 import application.entities.*;
 import net.sf.jasperreports.engine.*;
@@ -13,6 +14,7 @@ public class UserManager {
 	private PreparedStatement updateUserStatement;
 	private PreparedStatement getUserStatement;
 	private PreparedStatement promoteUserStatement;
+	private PreparedStatement getUserCartStatement;
 	private CallableStatement isManagerStatement;
 	/*private PreparedStatement addPublisherStatement;
 	private PreparedStatement addAuthorStatement;*/
@@ -34,7 +36,7 @@ public class UserManager {
 		signInStatement = connection.prepareCall("{? = CALL SIGN_IN(?, ?)}");
 		signOutStatement = connection.prepareCall("{CALL SIGN_OUT(?)}");
 		getUserStatement = connection.prepareStatement("SELECT * FROM USERS WHERE NAME = ?");
-		
+		getUserCartStatement = connection.prepareStatement("SELECT * FROM CART WHERE USER_NAME=?");
 		
 	}
 	public boolean addUser(User user) throws SQLException {
@@ -94,6 +96,27 @@ public class UserManager {
 		isManagerStatement.execute();
 		return isManagerStatement.getBoolean(1);
 	}
+	
+	public List<CartItem> getUserCart(String userName) throws SQLException{
+		getUserCartStatement.setString(1, userName);
+		return resultToCart(getUserCartStatement.executeQuery());
+	}
+	public List<CartItem> resultToCart(ResultSet rs) throws SQLException{
+		CartItem item;
+		List<CartItem> cart=new ArrayList<>();
+		while(rs.next()){
+			item=new CartItem();
+			item.setIsbn(rs.getString(2));
+			item.setQuantity(rs.getInt(3));
+			Book book = new DBManager().getBookManager().getBooksByIsbn(item.getIsbn()).get(0);
+			item.setTitle(book.getTitle());
+			item.setBookPrice(book.getSellingPrice());
+			item.setTotalPrice(book.getSellingPrice()*item.getQuantity());
+			cart.add(item);
+		}
+		return cart;
+	}
+
 	public boolean viewTop5Customers() throws JRException {
 		JasperDesign design = JRXmlLoader.load("src/application/reports/top5Customers.jrxml");
         JasperReport report = JasperCompileManager.compileReport(design);

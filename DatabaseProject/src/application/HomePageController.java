@@ -222,6 +222,7 @@ public class HomePageController implements Initializable{
 	private void ViewCart(MouseEvent mouseEvent) throws IOException {
 		Main m = new Main();
 		m.changeScene("ViewCart.fxml");	
+		System.out.println("here");
 	}
 	
 	@FXML

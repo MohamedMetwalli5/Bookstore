@@ -31,10 +31,7 @@ public class BookManager {
 	BookManager(Connection connection) throws SQLException{
 		addBookStatement = connection.prepareStatement("INSERT INTO BOOKS VALUES"
 								+"(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		updateBookStatement =  connection.prepareStatement("UPDATE BOOKS "
-									+"SET TITLE = ?, AUTHOR = ?, PUBLISHER = ?, PUBLICATION_YEAR = ?, "
-									+ "CATEGORY = ?, MIN_QUANTITY = ?, QUANTITY = ? "
-									+ "WHERE ISBN = ?");
+		updateBookStatement =  connection.prepareStatement("UPDATE BOOKS SET QUANTITY =? WHERE ISBN = ?");
 		addSaleStatement = connection.prepareStatement("INSERT INTO SALES"+
 								"(USER_NAME,ISBN,SALE_TIME,QUANTITY) VALUES"
 								+"( ?, ?, ?, ?)");
@@ -76,15 +73,8 @@ public class BookManager {
 	}
 	
 	public boolean updateBook(Book book) throws SQLException {
-		updateBookStatement.setString(1, book.getTitle());
-		updateBookStatement.setString(2, book.getAuthor());
-		updateBookStatement.setString(3, book.getPublisher());
-		updateBookStatement.setInt(4, book.getPublicationYear());
-		updateBookStatement.setDouble(5, book.getSellingPrice());
-		updateBookStatement.setString(6, book.getCategory());
-		updateBookStatement.setInt(7, book.getMinQuantity());
-		updateBookStatement.setInt(8, book.getQuantity());
-		updateBookStatement.setString(9, book.getIsbn());
+		updateBookStatement.setInt(1, book.getQuantity());
+		updateBookStatement.setString(2, book.getIsbn());
 		return updateBookStatement.executeUpdate() == 1;
 	}
 	
