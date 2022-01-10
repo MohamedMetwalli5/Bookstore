@@ -140,6 +140,6 @@
       </TableView>
        <TextField fx:id="bookIsbn" layoutX="504.0" layoutY="121.0" promptText="Book ISBN" />
       <TextField fx:id="bookQuantity" layoutX="677.0" layoutY="121.0" prefHeight="24.0" prefWidth="81.0" promptText="Quantity" />
-      <Button layoutX="763.0" layoutY="121.0" mnemonicParsing="false" text="Add to cart" />
+      <Button fx:id="AddToCartButton" layoutX="763.0" layoutY="121.0" mnemonicParsing="false" onMouseClicked="#AddToCart" text="Add to cart" />
    </children>
 </AnchorPane>

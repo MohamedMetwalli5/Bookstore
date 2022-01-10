@@ -16,7 +16,7 @@
         <columns>
           <TableColumn fx:id="ISBNColumn" prefWidth="152.0" text="ISBN" />
           <TableColumn fx:id="TitleColumn" minWidth="0.0" prefWidth="143.0" text="Title" />
-            <TableColumn fx:id="QunatityColumn" prefWidth="148.0" text="Quantity" />
+            <TableColumn fx:id="QuantityColumn" prefWidth="148.0" text="Quantity" />
             <TableColumn fx:id="BookPriceColumn" minWidth="0.0" prefWidth="127.0" text="Book Price" />
             <TableColumn fx:id="TotalPriceColumn" minWidth="0.0" prefWidth="140.0" text="Total Price" />
         </columns>

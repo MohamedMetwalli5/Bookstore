@@ -227,7 +227,7 @@ public class HomePageController implements Initializable{
 		m.changeScene("ViewCartPage.fxml");	
 	}
 	@FXML 
-	private void addToCard(){
+	private void AddToCard(){
 		if(!bookIsbn.getText().isEmpty() && !bookQuantity.getText().isEmpty()){
 			try {
 				Main.db.getBookManager().addToCart(Main.TheUserName, bookIsbn.getText().trim(), Integer.parseInt(bookQuantity.getText().trim()));
