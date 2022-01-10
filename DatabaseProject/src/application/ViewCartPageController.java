@@ -15,7 +15,7 @@ public class ViewCartPageController implements Initializable{
     private Text totalCostText;
     @FXML
     private TextField removedBookIsbn;
-
+/*
     @FXML
 	private TableView<Book> cartTable;
 	@FXML
@@ -29,7 +29,7 @@ public class ViewCartPageController implements Initializable{
 	@FXML
     private TableColumn<Book, String> TotalPriceColumn;
 
-
+*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
