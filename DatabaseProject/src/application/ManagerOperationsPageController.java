@@ -41,6 +41,11 @@ public class ManagerOperationsPageController {
 	}
 	
 	@FXML
+	private void GenerateReport(MouseEvent mouseEvent) {
+		
+	}
+	
+	@FXML
 	private void SaveAddBook(MouseEvent mouseEvent) {
 		
 			BookManager bm = Main.db.getBookManager();
@@ -85,7 +90,6 @@ public class ManagerOperationsPageController {
 		try {
 			bm.addBookOrder(bo);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
