@@ -47,7 +47,6 @@ public class BookManager {
 		getBooksStatement = connection.prepareStatement("SELECT * FROM BOOKS ORDER BY TITLE");
 		/*getSalesStatement = connection.prepareStatement("SELECT * FROM SALES");*/
 		getBookOrdersStatement = connection.prepareStatement("SELECT * FROM BOOK_ORDER");
-		getBookOrdersStatement = connection.prepareStatement("SELECT * FROM BOOK_ORDER");
 		getBooksByIsbnStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE ISBN=?");
 		getBooksByTitleStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE TITLE=?");
 		getBooksByAuthorStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE AUTHOR=?");
@@ -69,6 +68,7 @@ public class BookManager {
 		addBookStatement.setString(7, book.getCategory());
 		addBookStatement.setInt(8, book.getMinQuantity());
 		addBookStatement.setInt(9, book.getQuantity());
+		System.out.println(addBookStatement);
 		return addBookStatement.executeUpdate() == 1;
 	}
 	
@@ -110,7 +110,17 @@ public class BookManager {
 		emptyCartStatement.setString(1, userName);
 		emptyCartStatement.executeUpdate();
 	}
-	
+	public void checkOut(String userName,List<CartItem> list) throws SQLException{
+		for(CartItem item : list){
+			Sale sale = new Sale();
+			sale.setUserName(userName);
+			sale.setIsbn(item.getIsbn());
+			sale.setSalePrice(item.getTotalPrice());
+			sale.setQuantity(item.getQuantity());
+			sale.setSaleTime(new Date(System.currentTimeMillis()));
+			addSale(sale);
+		}
+	}
 	public boolean confirmBookOrder(int id) throws SQLException {
 		confirmOrderStatement.setInt(1, id);
 		return confirmOrderStatement.executeUpdate() == 1;
