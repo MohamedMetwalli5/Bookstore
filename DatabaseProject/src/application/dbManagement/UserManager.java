@@ -3,6 +3,10 @@ package application.dbManagement;
 import java.sql.*;
 
 import application.entities.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.*;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class UserManager {
 	private PreparedStatement addUserStatement;
@@ -13,7 +17,9 @@ public class UserManager {
 	private PreparedStatement addAuthorStatement;*/
 	private CallableStatement signInStatement;
 	private CallableStatement signOutStatement;
+	private Connection connection;
 	UserManager(Connection connection) throws SQLException{
+		this.connection = connection;
 		addUserStatement = connection.prepareStatement("INSERT INTO USERS VALUES"
 								+"( ?, ?, ?, ?, ?, ?)");
 		updateUserStatement = connection.prepareStatement("UPDATE USERS "
@@ -69,6 +75,27 @@ public class UserManager {
 		isManagerStatement.registerOutParameter(1, Types.BOOLEAN);
 		isManagerStatement.execute();
 		return signInStatement.getBoolean(1);
+	}
+	public boolean viewTop5Customers() throws JRException {
+		JasperDesign design = JRXmlLoader.load("src/application/reports/top5Customers.jrxml");
+        JasperReport report = JasperCompileManager.compileReport(design);
+        JasperPrint jprint = JasperFillManager.fillReport(report, null, this.connection);
+        JasperViewer.viewReport(jprint, false);
+        return true;
+	}
+	public boolean viewTop10Books() throws JRException {
+		JasperDesign design = JRXmlLoader.load("src/application/reports/top10Books.jrxml");
+        JasperReport report = JasperCompileManager.compileReport(design);
+        JasperPrint jprint = JasperFillManager.fillReport(report, null, this.connection);
+        JasperViewer.viewReport(jprint, false);
+        return true;
+	}
+	public boolean viewTotalBookSales() throws JRException {
+		JasperDesign design = JRXmlLoader.load("src/application/reports/totalBookSales.jrxml");
+        JasperReport report = JasperCompileManager.compileReport(design);
+        JasperPrint jprint = JasperFillManager.fillReport(report, null, this.connection);
+        JasperViewer.viewReport(jprint, false);
+        return true;
 	}
 	
 }
