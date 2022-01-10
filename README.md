@@ -50,4 +50,4 @@ or publisher.
   * The top 10 selling books for the last three months
 
 ## The ER Diagram
-![TheERDiagram](https://user-images.githubusercontent.com/58489322/148710163-b6ef7dc7-2f90-4326-93aa-3c24958874e2.PNG)
+![TheERDiagram](https://user-images.githubusercontent.com/58489322/148833104-20bfae60-b2c1-415c-a327-f3d357e07c32.png)
