@@ -125,7 +125,8 @@ public class ManagerOperationsPageController {
 		
 		UserManager um = Main.db.getUserManager();
 		try {
-			um.promoteUser(this.UserNameTextField.getText());
+			if(this.UserNameTextField.getLength()!=0)
+				um.promoteUser(this.UserNameTextField.getText());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -126,6 +126,7 @@ public class HomePageController implements Initializable{
 		UserManager um = Main.db.getUserManager();
 		try {
 			if(um.isManager(Main.TheUserName)) {	
+				System.out.println(Main.TheUserName);
 				Main m = new Main();
 				m.changeScene("ManagerOperationsPage.fxml");
 			}

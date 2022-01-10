@@ -92,7 +92,7 @@ public class UserManager {
 		isManagerStatement.setString(2, userName);
 		isManagerStatement.registerOutParameter(1, Types.BOOLEAN);
 		isManagerStatement.execute();
-		return signInStatement.getBoolean(1);
+		return isManagerStatement.getBoolean(1);
 	}
 	public boolean viewTop5Customers() throws JRException {
 		JasperDesign design = JRXmlLoader.load("src/application/reports/top5Customers.jrxml");
