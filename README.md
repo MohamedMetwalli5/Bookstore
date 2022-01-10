@@ -24,3 +24,6 @@ means that the order is received from publisher.
 * Searching for books
 The user can search for a book by ISBN, and title. The user can search for books of a specific Category, author
 or publisher.
+
+## The ER Diagram
+![TheERDiagram](https://user-images.githubusercontent.com/58489322/148710163-b6ef7dc7-2f90-4326-93aa-3c24958874e2.PNG)
