@@ -5,6 +5,7 @@ public class CartItem {
     String title;
     int quantity;
     double bookPrice;
+    double totalPrice;
     public String getTitle() {
         return title;
     }
@@ -35,5 +36,5 @@ public class CartItem {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-    double totalPrice;
+   
 }
