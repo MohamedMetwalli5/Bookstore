@@ -13,10 +13,20 @@ import javafx.scene.input.MouseEvent;
 public class SignUpFormController {
 	
 	@FXML
-	private Button SignUpButton;
+	private Button SignUpButton, BackButton;
 	
 	@FXML
 	private TextField FirstName, LastName, UserName, Email, Password, PhoneNumber, ShippingAddress;
+	
+	@FXML
+	private void GetPreviousScene(MouseEvent mouseEvent) {
+		Main m = new Main();
+		try {
+			m.changeScene("Home.fxml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@FXML
 	private void SignUp(MouseEvent mouseEvent) {
