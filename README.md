@@ -51,3 +51,7 @@ or publisher.
 
 ## The ER Diagram
 ![TheERDiagram](https://user-images.githubusercontent.com/58489322/148833104-20bfae60-b2c1-415c-a327-f3d357e07c32.png)
+
+## The Online Bookstore Logo
+![TheLogo](https://user-images.githubusercontent.com/58489322/148835338-cd3a77e4-ae24-4198-bc7e-5609d941af63.png)
+
