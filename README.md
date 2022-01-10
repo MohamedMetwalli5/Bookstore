@@ -25,5 +25,30 @@ means that the order is received from publisher.
 The user can search for a book by ISBN, and title. The user can search for books of a specific Category, author
 or publisher.
 
+- A registered customer can do the following activities:
+* Edit his personal information including his password
+* Search for books by any of the book’s attributes. (Use indices to speed up searches when possible)
+* Add books to a shopping cart
+* Manage his shopping cart. This includes the following.
+  * View the items in the cart
+  * View the individual and total prices of the books in the cart
+  * Remove items from the cart
+* Checkout a shopping cart
+  * The customer is then required to provide a credit card number and its expiry date. This transaction is completed successfully if the credit card information is appropriate.
+  * The book’s quantities in the store are updated according to this transaction.
+* Logout of the system
+  * Doing this will remove all the items in the current cart.
+- Managers can do the same operations that a normal customer can do; a manager has the following additional
+Options:
+* Add new books
+* Modify existing books
+* Place orders for books
+* Confirm orders
+* Promote registered customers to have managers credentials
+* View the following reports on sales
+  * The total sales for books in the previous month
+  * The top 5 customers who purchase the most purchase amount in descending order for the last three months
+  * The top 10 selling books for the last three months
+
 ## The ER Diagram
 ![TheERDiagram](https://user-images.githubusercontent.com/58489322/148710163-b6ef7dc7-2f90-4326-93aa-3c24958874e2.PNG)
