@@ -135,14 +135,9 @@ public class ManagerOperationsPageController {
 		
 		UserManager um = Main.db.getUserManager();
 		try {
-<<<<<<< HEAD
-			if(this.UserNameTextField.getLength()!=0)
-				um.promoteUser(this.UserNameTextField.getText());
-=======
 			if(this.UserNameTextField.getText() != null && this.UserNameTextField.getText().length() > 0) {
 				um.promoteUser(this.UserNameTextField.getText());	
 			}
->>>>>>> refs/remotes/origin/master
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
