@@ -132,13 +132,21 @@ public class HomePageController {
 	}
 	
 	@FXML
-	private void CheckOut(MouseEvent mouseEvent) throws IOException, SQLException {
+	private void CheckOut(MouseEvent mouseEvent){
 		// Change the total price label and make it equals zero
 		
 		BookManager bm = Main.db.getBookManager();
-		bm.emptyCart(Main.TheUserName);
+		try {
+			bm.emptyCart(Main.TheUserName);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		Main m = new Main();
-		m.changeScene("Home.fxml"); // to make the user sign out	
+		try {
+			m.changeScene("Home.fxml"); // to make the user sign out
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 	
 	}
 }
