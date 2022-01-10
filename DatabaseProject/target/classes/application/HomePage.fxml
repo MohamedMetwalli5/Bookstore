@@ -144,7 +144,6 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="DisplayButton" layoutX="248.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#Display" text="Display" />
       <TableView fx:id="BooksTable" layoutX="4.0" layoutY="193.0" prefHeight="476.0" prefWidth="918.0">
         <columns>
           <TableColumn fx:id="ISBNColumn" prefWidth="74.39999103546143" text="ISBN" />
