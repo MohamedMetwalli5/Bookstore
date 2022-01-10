@@ -32,8 +32,9 @@ public class ProfilePageController {
 		}else {
 			this.TheUnequalPasswordLabel.setText("");
 			UserManager um = Main.db.getUserManager();
-			User u = new User();
-			System.out.println(NewPassword);
+			User u;
+			try {
+				u = um.getUser(Main.TheUserName);
 			if(NewEmail != null && NewEmail.length() != 0) {
 				u.setEmail(NewEmail);	
 			}
@@ -46,8 +47,7 @@ public class ProfilePageController {
 			if(NewShippingAddress != null && NewShippingAddress.length() != 0) {
 				u.setShipAddress(NewShippingAddress);
 			}
-			try {
-				um.updateUser(u);
+			um.updateUser(u);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	

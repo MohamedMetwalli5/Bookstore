@@ -55,6 +55,7 @@ public class UserManager {
 		updateUserStatement.setString(5, user.getEmail());
 		updateUserStatement.setString(6, user.getShipAddress());
 		updateUserStatement.setString(7, user.getUserName());
+		System.out.println(updateUserStatement);
 		return updateUserStatement.executeUpdate() == 1;
 	}
 	public User getUser(String userName) throws SQLException{
