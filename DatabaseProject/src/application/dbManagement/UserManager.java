@@ -21,9 +21,9 @@ public class UserManager {
 	UserManager(Connection connection) throws SQLException{
 		this.connection = connection;
 		addUserStatement = connection.prepareStatement("INSERT INTO USERS VALUES"
-								+"( ?, ?, ?, ?, ?, ?)");
+								+"( ?, ?, ?, ?, ?, ?,?)");
 		updateUserStatement = connection.prepareStatement("UPDATE USERS "
-												+"SET FNAME = ?, LNAME = ?, PHONE = ?, PASSWORD = ?, "
+												+"SET FNAME = ?, LNAME = ?, PHONE_NUM = ?, PASSWORD = ?, "
 												+ "EMAIL = ?, SHIP_ADDRESS = ? "
 												+ "WHERE NAME = ?");
 		promoteUserStatement = connection.prepareStatement("INSERT INTO MANAGERS VALUES(?)");
