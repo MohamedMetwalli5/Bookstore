@@ -3,7 +3,7 @@
 ![ReportingTool](https://img.shields.io/badge/Reporting%20Tool-JasperReports%20-green.svg)
 ![License](https://img.shields.io/badge/License-GPL&ndash;3.0%20-blue.svg)
 
-# The Database Project Motivation:
+# The Database Project Motivation
 This is Analysis, design, and implementation of a database system to support the operations of a simplified online bookstore. And the creation of the necessary forms to perform these operations.
 
 <!-- ![TheLogo](https://user-images.githubusercontent.com/58489322/148835338-cd3a77e4-ae24-4198-bc7e-5609d941af63.png) -->
@@ -27,7 +27,7 @@ means that the order is received from publisher.
 The user can search for a book by ISBN, and title. The user can search for books of a specific Category, author
 or publisher.
 
-## Customer Allowed Operations:
+## Customer Allowed Operations
 * Editing his personal information including his password
 * Searching for books by any of the book’s attributes. (Use indices to speed up searches when possible)
 * Adding books to a shopping cart
@@ -40,7 +40,7 @@ or publisher.
   * The book’s quantities in the store are updated according to this transaction.
 * Logging out of the system
   * Doing this will remove all the items in the current cart.
-## Manager Allowed Operations:
+## Manager Allowed Operations
 * Adding new books
 * Modifying existing books
 * Placing orders for books
