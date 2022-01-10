@@ -28,16 +28,20 @@ public class SignInFormController {
 		try {
 			String UserName = this.UserName.getText(), Password = this.Password.getText();
 			Main.TheUserName = UserName;
-			um.signIn(UserName, Password);
+			boolean check = um.signIn(UserName, Password);
+			if(check) {
+				Main m = new Main();
+				try {
+					m.changeScene("HomePage.fxml");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		Main m = new Main();
-		try {
-			m.changeScene("HomePage.fxml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
 }

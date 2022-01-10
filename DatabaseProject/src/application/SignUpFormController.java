@@ -19,7 +19,7 @@ public class SignUpFormController {
 	private TextField FirstName, LastName, UserName, Email, Password, PhoneNumber, ShippingAddress;
 	
 	@FXML
-	private void SignUp(MouseEvent mouseEvent) throws IOException {
+	private void SignUp(MouseEvent mouseEvent) {
 		
 		String FirstName = this.FirstName.getText(), LastName = this.LastName.getText(), UserName = this.UserName.getText(), Email = this.Email.getText(), Password = this.Password.getText(), PhoneNumber = this.PhoneNumber.getText(), ShippingAddress = this.ShippingAddress.getText();
 		UserManager um = Main.db.getUserManager();
@@ -40,6 +40,10 @@ public class SignUpFormController {
 		}
 		
 		Main m = new Main();
-		m.changeScene("HomePage.fxml");
+		try {
+			m.changeScene("HomePage.fxml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

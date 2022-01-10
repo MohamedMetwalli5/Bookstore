@@ -9,7 +9,7 @@ public class DBManager {
 		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         System.out.println("before connection");
         connection =DriverManager.getConnection(
-        				"jdbc:mysql://127.0.0.1:3306/world","root","1234");
+        				"jdbc:mysql://127.0.0.1:3306/book_store","root","1234");
         bookManager = new BookManager(connection);
         userManager = new UserManager(connection);
         
@@ -28,7 +28,7 @@ public class DBManager {
 //            Class.forName("com.mysql.jdbc.Driver");
 //            System.out.println("before connection");
 //            Connection con=DriverManager.getConnection(
-//            "jdbc:mysql://127.0.0.1:3306/FSCHOOL","admin","admin");
+//            "jdbc:mysql://127.0.0.1:3306/book_store","root","1234");
 //
 //            System.out.println("before creating the statement");
 //            Statement stmt=con.createStatement();

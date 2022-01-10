@@ -41,7 +41,6 @@ public class ProfilePageController {
 			try {
 				um.updateUser(u);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
 		}

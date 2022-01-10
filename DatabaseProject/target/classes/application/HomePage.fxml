@@ -60,6 +60,15 @@
                   </Button>
                </graphic>
             </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Button fx:id="ManagerOperationsButton" mnemonicParsing="false" onMouseClicked="#ManagerOperations" style="-fx-background-color: #B958A5;" text="Manager Operations">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </graphic>
+            </Menu>
         </menus>
          <cursor>
             <Cursor fx:constant="HAND" />

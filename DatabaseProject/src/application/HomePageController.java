@@ -17,7 +17,7 @@ import javafx.scene.input.MouseEvent;
 public class HomePageController {
 	
 	@FXML
-	private Button SignOutButton, EditProfileButton, SearchButton, ViewCartButton, CheckOutButton;
+	private Button SignOutButton, EditProfileButton, ManagerOperationsButton, SearchButton, ViewCartButton, CheckOutButton;
 	
 	@FXML
 	private Label TotalPriceLabel;
@@ -31,18 +31,46 @@ public class HomePageController {
 	private static String SearchType = "Title";
 	
 	@FXML
-	private void SignOut(MouseEvent mouseEvent) throws IOException, SQLException {
+	private void SignOut(MouseEvent mouseEvent) {
 		UserManager um = Main.db.getUserManager();
-		um.signOut(Main.TheUserName);
+		try {
+			um.signOut(Main.TheUserName);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		Main m = new Main();
-		m.changeScene("Home.fxml");	
+		try {
+			m.changeScene("Home.fxml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
 	
 	@FXML
-	private void EditProfile(MouseEvent mouseEvent) throws IOException {
+	private void EditProfile(MouseEvent mouseEvent) {
 		Main m = new Main();
-		m.changeScene("ProfilePage.fxml");
+		try {
+			m.changeScene("ProfilePage.fxml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void ManagerOperations(MouseEvent mouseEvent){
+
+		UserManager um = Main.db.getUserManager();
+		try {
+			if(um.isManager(Main.TheUserName)) {	
+				Main m = new Main();
+				m.changeScene("ManagerOperationsPage.fxml");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
