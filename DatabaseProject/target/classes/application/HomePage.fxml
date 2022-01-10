@@ -89,17 +89,6 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <TableView layoutX="4.0" layoutY="193.0" prefHeight="406.0" prefWidth="918.0">
-        <columns>
-          <TableColumn prefWidth="74.39999103546143" text="ISBN" />
-          <TableColumn prefWidth="168.79998779296875" text="Title" />
-            <TableColumn prefWidth="174.40003967285156" text="Author" />
-            <TableColumn prefWidth="184.800048828125" text="Publisher" />
-            <TableColumn prefWidth="103.199951171875" text="Publication Year" />
-            <TableColumn prefWidth="86.39996337890625" text="Selling Price" />
-            <TableColumn prefWidth="129.60009765625" text="Category" />
-        </columns>
-      </TableView>
       <MenuBar layoutX="-1.0" layoutY="155.0" prefHeight="34.0" prefWidth="925.0">
         <menus>
           <Menu mnemonicParsing="false">
@@ -155,5 +144,17 @@
             </Menu>
         </menus>
       </MenuBar>
+      <Button fx:id="DisplayButton" layoutX="248.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#Display" text="Display" />
+      <TableView fx:id="BooksTable" layoutX="4.0" layoutY="193.0" prefHeight="476.0" prefWidth="918.0">
+        <columns>
+          <TableColumn fx:id="ISBNColumn" prefWidth="74.39999103546143" text="ISBN" />
+          <TableColumn fx:id="TitleColumn" prefWidth="168.79998779296875" text="Title" />
+            <TableColumn fx:id="AuthorColumn" prefWidth="174.40003967285156" text="Author" />
+            <TableColumn fx:id="PublisherColumn" prefWidth="184.800048828125" text="Publisher" />
+            <TableColumn fx:id="PublicationYearColumn" prefWidth="103.199951171875" text="Publication Year" />
+            <TableColumn fx:id="SellingPriceColumn" prefWidth="86.39996337890625" text="Selling Price" />
+            <TableColumn fx:id="CategoryColumn" prefWidth="129.60009765625" text="Category" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
