@@ -36,6 +36,7 @@ public class ProfilePageController {
 			System.out.println(NewPassword);
 			if(NewEmail != null && NewEmail.length() != 0) {
 				u.setEmail(NewEmail);	
+				System.out.println(NewEmail);
 			}
 			if(NewPassword != null && NewPassword.length() != 0) {
 				u.setPassword(NewPassword);
