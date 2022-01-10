@@ -76,19 +76,27 @@ public class ManagerOperationsPageController {
 		
 			BookManager bm = Main.db.getBookManager();
 			Book b = new Book();
-			b.setIsbn(this.AddBookISBNNumberTextField.getText());
-			b.setTitle(this.AddBookTitleTextField.getText());
-			b.setAuthor(this.AddBookAuthorTextField.getText());
-//			b.setPublisher(this.AddBookPublisherTextField.getText());
-			b.setPublicationYear(Integer.parseInt(this.AddBookPublicationYearTextField.getText()));
-//			b.setCategory(this.Add.getText());
-			b.setSellingPrice(Integer.parseInt(this.AddBookSellingPriceTextField.getText()));
-			
-			try {
-				bm.addBook(b);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			if(AddBookISBNNumberTextField.getLength()!=0
+				&&AddBookTitleTextField.getLength()!=0
+				&&AddBookPublicationYearTextField.getLength()!=0
+				&&AddBookAuthorTextField.getLength()!=0
+				&&AddBookCategoryTextField.getLength()!=0
+				&&AddBookSellingPriceTextField.getLength()!=0
+				&&AddBookPublisherTextField.getLength()!=0){
+					b.setIsbn(AddBookISBNNumberTextField.getText());
+					b.setTitle(AddBookTitleTextField.getText());
+					b.setAuthor(AddBookAuthorTextField.getText());
+					b.setPublisher(AddBookPublisherTextField.getText());
+					b.setPublicationYear(Integer.parseInt(AddBookPublicationYearTextField.getText()));
+					b.setCategory(AddBookCategoryTextField.getText());
+					b.setSellingPrice(Double.parseDouble(AddBookSellingPriceTextField.getText()));
+					
+					try {
+						bm.addBook(b);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+		}
 	}
 	
 	@FXML

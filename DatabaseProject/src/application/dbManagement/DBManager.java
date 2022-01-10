@@ -7,7 +7,7 @@ public class DBManager {
 	Connection connection; 
 	public DBManager() throws SQLException {
         connection =DriverManager.getConnection(
-        				"jdbc:mysql://127.0.0.1:3306/book_store","root","1234");
+        				"jdbc:mysql://127.0.0.1:3306/BOOK_STORE","root","sarsalmoh123");
         bookManager = new BookManager(connection);
         userManager = new UserManager(connection);
         
