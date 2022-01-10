@@ -18,7 +18,16 @@ public class BookManager {
 	private PreparedStatement addToCartStatement;
 	private PreparedStatement removeFromCartStatement;
 	private PreparedStatement emptyCartStatement;
-	/*private PreparedStatement getSalesStatement;*/
+	private PreparedStatement getBooksByIsbnStatement;
+	private PreparedStatement getBooksByTitleStatement;
+	private PreparedStatement getBooksByAuthorStatement;
+	private PreparedStatement getBooksByPublisherStatement;
+	private PreparedStatement getBooksByPublicationYearStatement;
+	private PreparedStatement getBooksWithPriceStatement;
+	private PreparedStatement getBooksByCategoryStatement;
+	private PreparedStatement getBooksLessThanOrEqualPriceStatement;
+	private PreparedStatement getBooksMoreThanOrEqualPriceStatement;
+	
 	BookManager(Connection connection) throws SQLException{
 		addBookStatement = connection.prepareStatement("INSERT INTO BOOKS VALUES"
 								+"(?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -41,6 +50,16 @@ public class BookManager {
 		getBooksStatement = connection.prepareStatement("SELECT * FROM BOOKS ORDER BY TITLE");
 		/*getSalesStatement = connection.prepareStatement("SELECT * FROM SALES");*/
 		getBookOrdersStatement = connection.prepareStatement("SELECT * FROM BOOK_ORDER");
+		getBookOrdersStatement = connection.prepareStatement("SELECT * FROM BOOK_ORDER");
+		getBooksByIsbnStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE ISBN=?");
+		getBooksByTitleStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE TITLE=?");
+		getBooksByAuthorStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE AUTHOR=?");
+		getBooksByPublisherStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE PUBLISHER=?");
+		getBooksByPublicationYearStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE PUBLICATION_YEAR=?");
+		getBooksWithPriceStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE SELLING_PRICE=?");
+		getBooksByCategoryStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE CATEGORY=?");
+		getBooksLessThanOrEqualPriceStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE SELLING_PRICE <= ?");
+		getBooksMoreThanOrEqualPriceStatement=connection.prepareStatement("SELECT * FROM BOOKS WHERE SELLING_PRICE >= ?");
 	}
 	
 	public boolean addBook(Book book) throws SQLException {
@@ -152,7 +171,7 @@ public class BookManager {
 			order.setId(result.getInt(1));
 			order.setIsbn(result.getString(2));
 			order.setQuantity(result.getInt(3));
-			order.setOrderDate((Date)format.parse(result.getString(4)));
+			order.setOrderDate(format.parse(result.getString(4)));
 			orderList.add(order);
 		}
 		return orderList;
@@ -163,83 +182,40 @@ public class BookManager {
 	}
 	
 	public List<Book> getBooksByIsbn(String isbn) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getIsbn().contains(isbn))
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksByIsbnStatement.setString(1, isbn);
+		return resultToBooks(getBooksByIsbnStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksByTitle(String title) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getTitle().contains(title))
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksByTitleStatement.setString(1,title);
+		return resultToBooks(getBooksByTitleStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksByAuthor(String author) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getAuthor().contains(author))
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksByAuthorStatement.setString(1,author);
+		return resultToBooks(getBooksByAuthorStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksByPublisher(String publisher) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getPublisher().contains(publisher))
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksByPublisherStatement.setString(1,publisher);
+		return resultToBooks(getBooksByPublisherStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksByPublicationYear(int year) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getPublicationYear() == year)
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksByPublicationYearStatement.setInt(3, year);
+		return resultToBooks(getBooksByPublicationYearStatement.executeQuery());
 	}
 	
 	public List<Book> getBooksLessThanOrEqualPrice(double price) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getSellingPrice() <= price)
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksLessThanOrEqualPriceStatement.setDouble(1, price);
+		return resultToBooks(getBooksLessThanOrEqualPriceStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksMoreThanOrEqualPrice(double price) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getSellingPrice() >= price)
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksMoreThanOrEqualPriceStatement.setDouble(1, price);
+		return resultToBooks(getBooksMoreThanOrEqualPriceStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksWithPrice(double price) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getSellingPrice() == price)
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksWithPriceStatement.setDouble(1,price);
+		return resultToBooks(getBooksWithPriceStatement.executeQuery());
 	}
-	
 	public List<Book> getBooksByCategory(String category) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getCategory().contains(category))
-				filteredList.add(b);
-		}
-		return filteredList;
+		getBooksByCategoryStatement.setString(1,category);
+		return resultToBooks(getBooksByCategoryStatement.executeQuery());
 	}
 }
