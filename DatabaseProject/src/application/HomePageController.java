@@ -231,6 +231,8 @@ public class HomePageController implements Initializable{
 		if(!bookIsbn.getText().isEmpty() && !bookQuantity.getText().isEmpty()){
 			try {
 				Main.db.getBookManager().addToCart(Main.TheUserName, bookIsbn.getText().trim(), Integer.parseInt(bookQuantity.getText().trim()));
+				bookIsbn.setText("");
+				bookQuantity.setText("");
 			} catch (NumberFormatException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
