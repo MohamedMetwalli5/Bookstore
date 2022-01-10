@@ -89,9 +89,12 @@ public class ViewCartPageController implements Initializable{
 	}
     
     @FXML
-    public void CheckOut(){
-    	
-    }
+    public void CheckOut(MouseEvent mouseEvent){
+        UserManager um = Main.db.getUserManager();
+        List<CartItem> lc = um.getUserCart(Main.TheUserName);
+        BookManager bm2 = Main.db.getBookManager();
+        bm2.checkOut(Main.TheUserName, lc);
+    } 
 
     @FXML
     public void RemoveFromCart(MouseEvent mouseEvent){

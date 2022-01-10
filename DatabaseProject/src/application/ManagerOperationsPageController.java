@@ -27,7 +27,7 @@ public class ManagerOperationsPageController implements Initializable {
 	private Button BackButton, SignOutButton, SaveAddBookButton, SaveModifyBookButton, OrderBooksButton, SearchBookButton, AddManagerButton;
 	
 	@FXML
-	private TextField AddBookISBNNumberTextField, AddBookTitleTextField, AddBookPublicationYearTextField, AddBookSellingPriceTextField, AddBookAuthorTextField, AddBookCategoryTextField, AddBookPublisherTextField;
+	private TextField AddBookISBNNumberTextField, AddBookTitleTextField, AddBookPublicationYearTextField, AddBookSellingPriceTextField, AddBookAuthorTextField, AddBookCategoryTextField, AddBookPublisherTextField, AddBookQuantityTextField, AddBookMinQuantityTextField;
 
 	@FXML
 	private TextField ModifyBookISBNNumberTextField, ModifyBookNewQuantityTextField;
