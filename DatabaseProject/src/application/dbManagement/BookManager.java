@@ -42,6 +42,7 @@ public class BookManager {
 		/*getSalesStatement = connection.prepareStatement("SELECT * FROM SALES");*/
 		getBookOrdersStatement = connection.prepareStatement("SELECT * FROM BOOK_ORDER");
 	}
+	
 	public boolean addBook(Book book) throws SQLException {
 		addBookStatement.setString(1, book.getIsbn());
 		addBookStatement.setString(2, book.getTitle());
@@ -54,6 +55,7 @@ public class BookManager {
 		addBookStatement.setInt(9, book.getQuantity());
 		return addBookStatement.executeUpdate() == 1;
 	}
+	
 	public boolean updateBook(Book book) throws SQLException {
 		updateBookStatement.setString(1, book.getTitle());
 		updateBookStatement.setString(2, book.getAuthor());
@@ -66,6 +68,7 @@ public class BookManager {
 		updateBookStatement.setString(9, book.getIsbn());
 		return updateBookStatement.executeUpdate() == 1;
 	}
+	
 	public boolean addSale(Sale sale) throws SQLException {
 		addSaleStatement.setString(1, sale.getUserName());
 		addSaleStatement.setString(2, sale.getIsbn());
@@ -73,31 +76,37 @@ public class BookManager {
 		addSaleStatement.setInt(4, sale.getQuantity());
 		return addSaleStatement.executeUpdate() == 1;
 	}
+	
 	public boolean addBookOrder(BookOrder order) throws SQLException {
 		addBookOrderStatement.setString(1, order.getIsbn());
 		addBookOrderStatement.setInt(2, order.getQuantity());
 		addBookOrderStatement.setString(3, format.format(order.getOrderDate()));
 		return addBookOrderStatement.executeUpdate() == 1;
 	}
+	
 	public boolean addToCart(String userName, String isbn, int quantity) throws SQLException {
 		addToCartStatement.setString(1, userName);
 		addToCartStatement.setString(2, isbn);
 		addToCartStatement.setInt(3, quantity);
 		return addToCartStatement.executeUpdate() == 1;
 	}
+	
 	public boolean removeFromCart(String userName, String isbn) throws SQLException {
 		removeFromCartStatement.setString(1, userName);
 		removeFromCartStatement.setString(2, isbn);
 		return removeFromCartStatement.executeUpdate() == 1;
 	}
+	
 	public void emptyCart(String userName) throws SQLException {
 		emptyCartStatement.setString(1, userName);
 		emptyCartStatement.executeUpdate();
 	}
+	
 	public boolean confirmBookOrder(int id) throws SQLException {
 		confirmOrderStatement.setInt(1, id);
 		return confirmOrderStatement.executeUpdate() == 1;
 	}
+	
 	private List<Book> resultToBooks(ResultSet result) throws SQLException{
 		Book book;
 		List<Book> bookList = new LinkedList<>();
@@ -116,80 +125,9 @@ public class BookManager {
 		}
 		return bookList;
 	}
+	
 	public List<Book> getBooks() throws SQLException{
 		return resultToBooks(getBooksStatement.executeQuery());
-	}
-	public List<Book> getBooksByIsbn(String isbn) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getIsbn().contains(isbn))
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksByTitle(String title) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getTitle().contains(title))
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksByAuthor(String author) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getAuthor().contains(author))
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksByPublisher(String publisher) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getPublisher().contains(publisher))
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksByPublicationYear(int year) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getPublicationYear() == year)
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksLessThanOrEqualPrice(double price) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getSellingPrice() <= price)
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksMoreThanOrEqualPrice(double price) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getSellingPrice() >= price)
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksWithPrice(double price) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getSellingPrice() == price)
-				filteredList.add(b);
-		}
-		return filteredList;
-	}
-	public List<Book> getBooksByCategory(String category) throws SQLException{
-		List<Book> filteredList = new LinkedList<>();
-		for(Book b: getBooks()) {
-			if(b.getCategory().contains(category))
-				filteredList.add(b);
-		}
-		return filteredList;
 	}
 	
 	/*private List<Sale> resultToSales(ResultSet result) throws SQLException{
@@ -219,7 +157,89 @@ public class BookManager {
 		}
 		return orderList;
 	}
+	
 	public List<BookOrder> getBookOrders() throws SQLException, ParseException{
 		return resultToBookOrders(getBookOrdersStatement.executeQuery());
+	}
+	
+	public List<Book> getBooksByIsbn(String isbn) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getIsbn().contains(isbn))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksByTitle(String title) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getTitle().contains(title))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksByAuthor(String author) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getAuthor().contains(author))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksByPublisher(String publisher) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getPublisher().contains(publisher))
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksByPublicationYear(int year) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getPublicationYear() == year)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksLessThanOrEqualPrice(double price) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getSellingPrice() <= price)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksMoreThanOrEqualPrice(double price) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getSellingPrice() >= price)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksWithPrice(double price) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getSellingPrice() == price)
+				filteredList.add(b);
+		}
+		return filteredList;
+	}
+	
+	public List<Book> getBooksByCategory(String category) throws SQLException{
+		List<Book> filteredList = new LinkedList<>();
+		for(Book b: getBooks()) {
+			if(b.getCategory().contains(category))
+				filteredList.add(b);
+		}
+		return filteredList;
 	}
 }
