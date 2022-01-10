@@ -25,7 +25,7 @@ means that the order is received from publisher.
 The user can search for a book by ISBN, and title. The user can search for books of a specific Category, author
 or publisher.
 
-- A registered customer can do the following activities:
+## Customer Allowed Operations:
 * Edit his personal information including his password
 * Search for books by any of the book’s attributes. (Use indices to speed up searches when possible)
 * Add books to a shopping cart
@@ -38,8 +38,7 @@ or publisher.
   * The book’s quantities in the store are updated according to this transaction.
 * Logout of the system
   * Doing this will remove all the items in the current cart.
-- Managers can do the same operations that a normal customer can do; a manager has the following additional
-Options:
+## Manager Allowed Operations:
 * Add new books
 * Modify existing books
 * Place orders for books
