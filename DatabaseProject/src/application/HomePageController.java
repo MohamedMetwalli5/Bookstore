@@ -37,7 +37,7 @@ public class HomePageController implements Initializable{
 	@FXML
 	private RadioButton ISBNRadioButton, TitleRadioButton, AuthorRadioButton, PublisherRadioButton, PublicationYearRadioButton, SellingPriceRadioButton, CategoryRadioButton;
 	
-	private static String SearchType = "Title";
+	private static String SearchType = "";
 	
 	@FXML
 	private TableView<Book> BooksTable;
@@ -153,54 +153,69 @@ public class HomePageController implements Initializable{
 		String SearchingText = InsertTextField.getText();
 		BookManager bm = Main.db.getBookManager();
 		List<Book> searchedBooks=new ArrayList<>();
-		if(SearchType.equals("ISBN")) {
+		if(SearchType.equals("ISBN") && SearchingText.length() > 0) {
 			try {
-				searchedBooks=bm.getBooksByIsbn(SearchingText);
+				searchedBooks = bm.getBooksByIsbn(SearchingText);
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
-		}else if(SearchType.equals("Title")) {
+		}else if(SearchType.equals("Title") && SearchingText.length() > 0) {
 			try {
-				searchedBooks=bm.getBooksByTitle(SearchingText);
+				searchedBooks = bm.getBooksByTitle(SearchingText);
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
-		}else if(SearchType.equals("Author")) {
+		}else if(SearchType.equals("Author") && SearchingText.length() > 0) {
 			try {
-				searchedBooks=bm.getBooksByAuthor(SearchingText);
+				searchedBooks = bm.getBooksByAuthor(SearchingText);
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
-		}else if(SearchType.equals("Category")) {
+		}else if(SearchType.equals("Category") && SearchingText.length() > 0) {
 			try {
-				searchedBooks=bm.getBooksByCategory(SearchingText);
+				searchedBooks = bm.getBooksByCategory(SearchingText);
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
-		}else if(SearchType.equals("PublicationYear")) {
+		}else if(SearchType.equals("PublicationYear") && SearchingText.length() > 0) {
 			try {
-				searchedBooks=bm.getBooksByPublicationYear(Integer.parseInt(SearchType));
+				searchedBooks = bm.getBooksByPublicationYear(Integer.parseInt(SearchType));
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}else if(SearchType.equals("SellingPrice")) {
+		}else if(SearchType.equals("SellingPrice") && SearchingText.length() > 0) {
 			try {
 				searchedBooks=bm.getBooksWithPrice(Integer.parseInt(SearchingText));
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}else if(SearchType.equals("Publisher")) {
+		}else if(SearchType.equals("Publisher") && SearchingText.length() > 0) {
 			try {
-				searchedBooks=bm.getBooksByPublisher(SearchingText);
+				searchedBooks = bm.getBooksByPublisher(SearchingText);
+				BooksTable.setItems(GetBooks(searchedBooks));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}			
+		}else {
+			// Get the whole original table
+			BookManager bm2 = Main.db.getBookManager();
+			try {
+				List<Book> lb = bm.getBooks();
+				BooksTable.setItems(GetBooks(lb));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		BooksTable.setItems(GetBooks(searchedBooks));
 	}
 	
 	@FXML
