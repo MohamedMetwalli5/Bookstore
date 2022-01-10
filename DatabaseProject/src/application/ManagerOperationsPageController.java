@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import net.sf.jasperreports.engine.JRException;
 
 public class ManagerOperationsPageController {
 	
@@ -42,7 +43,22 @@ public class ManagerOperationsPageController {
 	
 	@FXML
 	private void GenerateReport(MouseEvent mouseEvent) {
-		
+		UserManager um = Main.db.getUserManager();
+		try {
+			um.viewTop10Books();
+		} catch (JRException e) {
+			e.printStackTrace();
+		}
+		try {
+			um.viewTop5Customers();
+		} catch (JRException e) {
+			e.printStackTrace();
+		}
+		try {
+			um.viewTotalBookSales();
+		} catch (JRException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
