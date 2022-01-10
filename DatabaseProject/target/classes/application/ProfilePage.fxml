@@ -32,7 +32,7 @@
          </font>
       </Label>
       <Label layoutX="224.0" layoutY="74.0" prefHeight="30.0" prefWidth="188.0" />
-      <Label fx:id="TheUnequalPasswordLabel" layoutX="212.0" layoutY="201.0" prefHeight="42.0" prefWidth="213.0" text="Confirmation password doesn't equal the new password" textFill="RED">
+      <Label fx:id="TheUnequalPasswordLabel" layoutX="212.0" layoutY="201.0" prefHeight="42.0" prefWidth="213.0" text=" " textFill="RED">
          <font>
             <Font size="8.0" />
          </font></Label>
