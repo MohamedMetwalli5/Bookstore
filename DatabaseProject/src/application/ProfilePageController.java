@@ -34,16 +34,16 @@ public class ProfilePageController {
 			UserManager um = Main.db.getUserManager();
 			User u = new User();
 			System.out.println(NewPassword);
-			if(NewEmail != null && NewEmail != "") {
+			if(NewEmail != null && NewEmail.length() != 0) {
 				u.setEmail(NewEmail);	
 			}
-			if(NewPassword != null && NewPassword != "") {
+			if(NewPassword != null && NewPassword.length() != 0) {
 				u.setPassword(NewPassword);
 			}
-			if(NewPhoneNumber != null && NewPhoneNumber != "") {
+			if(NewPhoneNumber != null && NewPhoneNumber.length() != 0) {
 				u.setPhone(NewPhoneNumber);
 			}
-			if(NewShippingAddress != null && NewShippingAddress != "") {
+			if(NewShippingAddress != null && NewShippingAddress.length() != 0) {
 				u.setShipAddress(NewShippingAddress);
 			}
 			try {
