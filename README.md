@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/License-GPL&ndash;3.0%20-blue.svg)
 
 # The Database Project Motivation
-This is Analysis, design, and implementation of a database system to support the operations of a simplified online bookstore. And the creation of the necessary forms to perform these operations.
+This is Analysis, design, and implementation of a database system to support the operations of a simplified online bookstore. And the creation of the necessary forms to perform these operations. 
 
 <!-- ![TheLogo](https://user-images.githubusercontent.com/58489322/148835338-cd3a77e4-ae24-4198-bc7e-5609d941af63.png) -->
 
