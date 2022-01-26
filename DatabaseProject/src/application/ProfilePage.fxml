@@ -36,7 +36,7 @@
          <font>
             <Font size="8.0" />
          </font></Label>
-      <MenuBar layoutY="1.0" prefHeight="30.0" prefWidth="427.0">
+      <MenuBar layoutY="1.0" prefHeight="30.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.19999999999998863">
         <menus>
             <Menu mnemonicParsing="false">
                <graphic>
