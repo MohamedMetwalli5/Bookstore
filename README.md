@@ -61,13 +61,13 @@ or publisher.
 
 ![image](https://user-images.githubusercontent.com/58489322/151219695-847c9e6d-712f-4212-a9f7-69600e7fe1dd.png)
 
-![image](https://user-images.githubusercontent.com/58489322/151219012-21711a6e-d80d-436b-aab7-2abe5161b975.png)
-
-![image](https://user-images.githubusercontent.com/58489322/151218859-a5c891f2-1b25-4b3e-9e2b-178e1cfb0a1f.png)
-
 ![image](https://user-images.githubusercontent.com/58489322/151218761-9afa4fcd-2b73-49da-b6f8-d18417ceaee5.png)
 
 ![image](https://user-images.githubusercontent.com/58489322/151219864-bf6f6366-5675-4854-be91-1aa0de2012ca.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219012-21711a6e-d80d-436b-aab7-2abe5161b975.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151218859-a5c891f2-1b25-4b3e-9e2b-178e1cfb0a1f.png)
 
 
 ## The Online Bookstore Logo
