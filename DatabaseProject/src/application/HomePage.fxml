@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="925.0" style="-fx-background-color: FFCDDD;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
    <children>
-      <MenuBar layoutY="1.0" prefHeight="34.0" prefWidth="925.0">
+      <MenuBar layoutY="1.0" prefHeight="34.0" prefWidth="925.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.6000000000000227">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
@@ -72,7 +72,7 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <MenuBar layoutX="-1.0" layoutY="155.0" prefHeight="34.0" prefWidth="925.0">
+      <MenuBar layoutX="-1.0" layoutY="155.0" prefHeight="34.0" prefWidth="925.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.6000000000000227">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
@@ -127,7 +127,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="BooksTable" layoutX="4.0" layoutY="193.0" prefHeight="476.0" prefWidth="918.0">
+      <TableView fx:id="BooksTable" layoutX="4.0" layoutY="193.0" prefHeight="476.0" prefWidth="918.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="2.6000000000000227">
         <columns>
           <TableColumn fx:id="ISBNColumn" prefWidth="74.39999103546143" text="ISBN" />
           <TableColumn fx:id="TitleColumn" prefWidth="168.79998779296875" text="Title" />
