@@ -54,6 +54,24 @@ or publisher.
 ## The ER Diagram
 ![TheERDiagram](https://user-images.githubusercontent.com/58489322/148833104-20bfae60-b2c1-415c-a327-f3d357e07c32.png)
 
+## Screenshots
+![image](https://user-images.githubusercontent.com/58489322/151219333-0d3267bf-b18e-4750-be3b-1c5de424eae6.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219695-847c9e6d-712f-4212-a9f7-69600e7fe1dd.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219610-fc2c4809-b415-4966-8d72-288563d9b110.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219471-45884d1b-fb49-47b5-a236-b72c8376f5e5.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219012-21711a6e-d80d-436b-aab7-2abe5161b975.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151218859-a5c891f2-1b25-4b3e-9e2b-178e1cfb0a1f.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151218761-9afa4fcd-2b73-49da-b6f8-d18417ceaee5.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219864-bf6f6366-5675-4854-be91-1aa0de2012ca.png)
+
+
 ## The Online Bookstore Logo
 ![TheLogo](https://user-images.githubusercontent.com/58489322/148835338-cd3a77e4-ae24-4198-bc7e-5609d941af63.png)
 
