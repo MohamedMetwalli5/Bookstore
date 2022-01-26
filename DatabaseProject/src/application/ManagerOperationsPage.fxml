@@ -62,7 +62,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="490.0">
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="490.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.39999999999997726">
         <menus>
             <Menu mnemonicParsing="false">
                <graphic>
