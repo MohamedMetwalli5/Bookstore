@@ -65,8 +65,6 @@ or publisher.
 
 ![image](https://user-images.githubusercontent.com/58489322/151219864-bf6f6366-5675-4854-be91-1aa0de2012ca.png)
 
-![image](https://user-images.githubusercontent.com/58489322/151220650-e2d85d8a-f1a3-492b-b725-483abb9e8304.png)
-
 ![image](https://user-images.githubusercontent.com/58489322/151218859-a5c891f2-1b25-4b3e-9e2b-178e1cfb0a1f.png)
 
 
