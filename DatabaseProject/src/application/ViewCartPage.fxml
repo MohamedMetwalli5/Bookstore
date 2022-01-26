@@ -32,7 +32,7 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <TextField fx:id="BookISBNTextField" layoutX="347.0" layoutY="46.0" promptText="Book ISBN" />
-      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="705.0">
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="705.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.6000000000000227">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
