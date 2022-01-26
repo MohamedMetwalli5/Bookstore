@@ -28,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="427.0">
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.19999999999998863">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
@@ -42,7 +42,7 @@
             <Menu mnemonicParsing="false" />
         </menus>
       </MenuBar>
-      <Label layoutX="14.0" layoutY="45.0" prefHeight="18.0" prefWidth="142.0" text="Sign Up">
+      <Label layoutX="14.0" layoutY="45.0" prefHeight="18.0" prefWidth="142.0" text="Sign Up" AnchorPane.leftAnchor="13.999999999999972">
          <font>
             <Font size="39.0" />
          </font>
