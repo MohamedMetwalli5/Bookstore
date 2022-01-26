@@ -12,16 +12,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="427.0" style="-fx-background-color: #faf498;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignInFormController">
    <children>
-      <TextField fx:id="UserName" alignment="CENTER" layoutX="106.0" layoutY="142.0" prefHeight="31.0" prefWidth="219.0" promptText="User Name">
+      <TextField fx:id="UserName" alignment="CENTER" layoutX="106.0" layoutY="142.0" prefHeight="31.0" prefWidth="219.0" promptText="User Name" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="101.80000000000001">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <PasswordField fx:id="Password" alignment="CENTER" layoutX="106.0" layoutY="200.0" prefHeight="31.0" prefWidth="219.0" promptText="Password">
+      <PasswordField fx:id="Password" alignment="CENTER" layoutX="106.0" layoutY="200.0" prefHeight="31.0" prefWidth="219.0" promptText="Password" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="101.80000000000001">
          <font>
             <Font size="15.0" />
          </font></PasswordField>
     <AnchorPane layoutX="128.0" layoutY="73.0" />
-      <Button fx:id="SignInButton" layoutX="184.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#SignIn" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER">
+      <Button fx:id="SignInButton" layoutX="184.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#SignIn" style="-fx-background-color: #dfd0d0;" text="Sign In" textAlignment="CENTER" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="180.6">
          <font>
             <Font size="14.0" />
          </font>
@@ -29,12 +29,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="61.0" layoutY="73.0" prefHeight="56.0" prefWidth="305.0" text="Online Bookstore">
+      <Label layoutX="61.0" layoutY="73.0" prefHeight="56.0" prefWidth="305.0" text="Online Bookstore" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="60.39999999999998">
          <font>
             <Font size="39.0" />
          </font>
       </Label>
-      <MenuBar prefHeight="26.0" prefWidth="427.0">
+      <MenuBar prefHeight="26.0" prefWidth="427.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.19999999999998863">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
