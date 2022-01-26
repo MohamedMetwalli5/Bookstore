@@ -57,11 +57,9 @@ or publisher.
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/58489322/151219333-0d3267bf-b18e-4750-be3b-1c5de424eae6.png)
 
-![image](https://user-images.githubusercontent.com/58489322/151219695-847c9e6d-712f-4212-a9f7-69600e7fe1dd.png)
-
-![image](https://user-images.githubusercontent.com/58489322/151219610-fc2c4809-b415-4966-8d72-288563d9b110.png)
-
 ![image](https://user-images.githubusercontent.com/58489322/151219471-45884d1b-fb49-47b5-a236-b72c8376f5e5.png)
+
+![image](https://user-images.githubusercontent.com/58489322/151219695-847c9e6d-712f-4212-a9f7-69600e7fe1dd.png)
 
 ![image](https://user-images.githubusercontent.com/58489322/151219012-21711a6e-d80d-436b-aab7-2abe5161b975.png)
 
