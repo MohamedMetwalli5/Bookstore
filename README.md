@@ -54,6 +54,8 @@ or publisher.
 ## The ER Diagram
 ![TheERDiagram](https://user-images.githubusercontent.com/58489322/148833104-20bfae60-b2c1-415c-a327-f3d357e07c32.png)
 
+---
+
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/58489322/151219333-0d3267bf-b18e-4750-be3b-1c5de424eae6.png)
 
