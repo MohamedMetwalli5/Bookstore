@@ -17,6 +17,7 @@ public class Main extends Application {
 	
 	public static DBManager db;
 	public static String TheUserName = "";
+	public static String TheTotalPriceLabel = "0 $";
 	
 	@Override
 	public void start(Stage primaryStage) {
