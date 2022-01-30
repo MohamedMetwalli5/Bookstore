@@ -91,7 +91,11 @@ public class ViewCartPageController implements Initializable{
     @FXML
     public void CheckOut(MouseEvent mouseEvent){
         UserManager um = Main.db.getUserManager();
-        List<CartItem> lc = null;
+    	HomePageController h = new HomePageController(); // Object to be used to update the total price label at the home page
+    	Main.TheTotalPriceLabel = TotalCostText.getText();
+    	TotalCostText.setText("0 $");
+    	
+    	List<CartItem> lc = null;
 		try {
 			lc = um.getUserCart(Main.TheUserName);
 		} catch (SQLException e) {
