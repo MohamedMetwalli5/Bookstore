@@ -70,6 +70,20 @@ public class HomePageController implements Initializable{
 	
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
+		
+		try {
+			UserManager um1 = Main.db.getUserManager();
+			if(!um1.isManager(Main.TheUserName)) {	
+				ManagerOperationsButton.setVisible(false);
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		if(TotalPriceLabel.getText().equals("0 $")) {
+			TotalPriceLabel.setText(Main.TheTotalPriceLabel);
+		}
+
 		ISBNColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
 		TitleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
 		AuthorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
@@ -121,7 +135,7 @@ public class HomePageController implements Initializable{
 		UserManager um = Main.db.getUserManager();
 		try {
 			if(um.isManager(Main.TheUserName)) {	
-				System.out.println(Main.TheUserName);
+//				System.out.println(Main.TheUserName);
 				Main m = new Main();
 				m.changeScene("ManagerOperationsPage.fxml");
 			}
