@@ -1,5 +1,5 @@
 ![GUI](https://img.shields.io/badge/GUI-JavaFX%20-orange.svg)
-![DBMS](https://img.shields.io/badge/Database%20Management%20System-MySQL%20-violet.svg)
+![DBMS](https://img.shields.io/badge/DBMS-MySQL%20-violet.svg)
 ![ReportingTool](https://img.shields.io/badge/Reporting%20Tool-JasperReports%20-green.svg)
 ![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)
 
